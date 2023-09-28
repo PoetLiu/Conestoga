@@ -1,0 +1,10 @@
+figure {
+    border: 1px solid #000000;
+    padding: 5px;
+    width: 640px;
+}
+
+figcaption {
+    font-family: Papyrus, fantasy;
+    text-align: center;
+}
