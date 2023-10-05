@@ -1,0 +1,10 @@
+ul { display: none; }
+
+#main_image {
+    width: 750px;
+    height: 450px
+}
+
+.hide {
+    display: none;
+}
