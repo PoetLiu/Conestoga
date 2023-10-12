@@ -26,3 +26,8 @@ input {
 #calculate {
 	margin-bottom: 1em;
 }
+#error {
+    color: red;
+    font-size: 12px;
+    margin-left: 272px;
+}
