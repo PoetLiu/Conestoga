@@ -2,11 +2,11 @@
 
 const scores = [];
 
-const $ = selector => {
+const $ = (selector) => {
     return document.querySelector(selector);
 }
 
-const addScore = selector => {
+const addScore = (selector) => {
     const score = parseInt($("#score").value);
     if (score >= 0 && score <= 100) {
         scores[scores.length] = score;
