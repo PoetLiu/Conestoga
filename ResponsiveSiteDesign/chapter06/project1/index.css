@@ -89,7 +89,7 @@ header h1 {
 main h2 {
     text-align: center;
     clear: both;
-    margin-top: 30px;
+    margin-top: 80px;
 }
 
 #showroom {
@@ -137,7 +137,7 @@ main section img {
 }
 
 footer {
-    margin-top: 20px;
+    margin-top: 60px;
     padding: 10px;
     background-color: lightgrey;
     overflow: auto;
@@ -204,7 +204,7 @@ footer img {
     .col3 {
         float: none;
         width: 100%;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
     }
 
     footer .col3 {
