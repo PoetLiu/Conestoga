@@ -1,0 +1,213 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: 300px;
+}
+
+main {
+    overflow: auto;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+    display: inline-block;
+}
+
+nav h1 {
+    display: inline-block;
+    font-style: italic;
+}
+
+nav h1 a {
+    color: red;
+    margin-left: 10px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+nav ul a {
+    color: rgb(127, 127, 127);
+    font-size: 1.2em;
+}
+
+nav ul a:hover {
+    text-shadow: 0px 0px 1px rgb(100, 100, 100);
+}
+
+#userImg {
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin: 20px 20px;
+}
+
+header {
+    /* image source: https://www.shopify.com/stock-photos/photos/man-getting-into-red-sports-car */
+    background-image: url(images/man-getting-into-red-sports-car.jpg);
+    background-size: cover;
+    height: 600px;
+}
+
+header h1 {
+    color: white;
+    font-size: 3em;
+    margin: 0;
+    padding: 100px 0 0 50px;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 30px;
+    padding: 10px 60px;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+
+.button:hover {
+    box-shadow: 0 0 11px;
+}
+
+#shopNow {
+    margin: 40px 0 0 50px;
+}
+
+#sellNow {
+    margin-left: 30px;
+}
+
+main h2 {
+    text-align: center;
+    clear: both;
+    margin-top: 30px;
+}
+
+#showroom {
+    float: left;
+    max-height: 400px;
+    margin: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px lightgray;
+}
+
+#showroomDesc {
+    font-size: 1.2em;
+    line-height: 1.5em;
+    padding-top: 10px;
+}
+
+.col3 {
+    float: left;
+    width: 33.33%;
+    text-align: center;
+}
+
+.wrapper:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+main section p {
+    margin: 0 20px;
+}
+
+main section img {
+    width: 80%;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px lightgray;
+    object-fit: cover;
+    object-position: center;
+}
+
+.col2 {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: lightgrey;
+    overflow: auto;
+}
+
+footer a {
+    font-style: italic;
+}
+
+footer .col3 {
+    text-align: left;
+}
+
+footer ul {
+    padding: 0;
+}
+
+footer img {
+    width: 30px;
+}
+
+#followUs li {
+    display: inline-block;
+}
+
+@media all and (max-width: 1200px) {
+    #showroom {
+        float: none;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #showroomDesc {
+        font-size: 1.2em;
+        line-height: 1em;
+        padding: 20px;
+    }
+}
+
+@media all and (max-width: 840px) {
+    nav ul {
+        display: block;
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+    }
+
+    #showroom {
+        float: none;
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    #showroomDesc {
+        font-size: 1.2em;
+        line-height: 1em;
+        padding: 20px;
+    }
+
+    .col2,
+    .col3 {
+        float: none;
+        width: 100%;
+        margin-bottom: 60px;
+    }
+
+    footer .col3 {
+        text-align: center;
+    }
+}
