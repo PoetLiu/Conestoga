@@ -163,6 +163,13 @@ footer img {
     display: inline-block;
 }
 
+#copyright {
+    margin-top: 40px;
+    clear: both;
+    text-align: center;
+    font-style: italic;
+}
+
 @media all and (max-width: 1200px) {
     #showroom {
         float: none;
