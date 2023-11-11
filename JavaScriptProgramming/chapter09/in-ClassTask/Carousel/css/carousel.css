@@ -1,0 +1,25 @@
+.button_panel{
+    float: left;
+}
+#display_panel {
+    width: 300px;
+    overflow: hidden;
+    float: left;
+    height: 125px;
+}
+
+#image_list {
+    position: relative;
+    left: 0px; /* required for IE*/
+    width: 900px;
+    list-style: none;
+}
+
+#image_list li {
+    float: left;
+    width: 100px;
+}
+
+#image_list li img {
+    width: 95px;
+}
