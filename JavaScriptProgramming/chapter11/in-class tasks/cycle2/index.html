@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/app.css">
+    </head>
+
+<body>
+    <div class="cycle-slideshow" data-cycle-fx="scrollHorz" data-cycle-timeout="2000"
+        data-cycle-caption="#adv-custom-caption" data-cycle-caption-template="Slide {{slideNum}}: {{cycleTitle}}">
+        <img src="images/car01.jpeg" alt="" data-cycle-title="Front">
+        <img src="images/car02.jpeg" alt="" data-cycle-title="Left side">
+        <img src="images/car03.jpeg" alt="" data-cycle-title="Rear side">
+        <img src="images/car04.jpeg" alt="" data-cycle-title="Top side">
+        <img src="images/car05.jpeg" alt="" data-cycle-title="Driver's side">
+        <img src="images/car06.jpeg" alt="" data-cycle-title="Back seat">
+        ...
+        <!-- empty element for caption -->
+        <div id="adv-custom-caption"></div>
+    </div>
+</body>
+
+<script src="http://code.jquery.com/jquery-3.1.1.min.js">
+</script>
+<script src="./js/jquery.cycle2.min.js">
+</script>
+
+</html>
