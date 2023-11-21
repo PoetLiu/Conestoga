@@ -7,23 +7,8 @@ const padToThreeDigit = num => num.toString().padStart(3, "0");
 
 const displayCurrentTime = () => {
     const now = new Date();
-    let hours = now.getHours();
-    let ampm = "AM"; // set default value
-    
-    // correct hours and AM/PM value for display
-    if (hours > 12) { // convert from military time
-        hours = hours - 12;
-        ampm = "PM";
-    } else { // adjust 12 noon and 12 midnight
-         switch (hours) {
-            case 12: // noon
-                ampm = "PM";
-                break;
-            case 0:  // midnight
-                hours = 12;
-                ampm = "AM";
-        }
-    }
+    const hours = now.getHours() % 12 || 12;
+    const ampm = now.getHours() >= 12 ? "PM" : "AM";
     
     $("#hours").textContent = hours;
     $("#minutes").textContent = padSingleDigit(now.getMinutes());
@@ -69,21 +54,20 @@ const startStopwatch = evt => {
     // prevent default action of link
     evt.preventDefault();
         
-    // if it has been started, ignore this evt.
-    if (stopwatchTimer != null) {
-        return;
-    }
     // do first tick of stop watch and then set interval timer to tick 
     // stop watch every 10 milliseconds. Store timer object in stopwatchTimer 
     // variable so next two functions can stop timer.
     tickStopwatch();
     stopwatchTimer = setInterval(tickStopwatch, 10);
-    
+    setState(states.RUNNING);
 };
+
+const resumeStopwatch = evt => {
+    startStopwatch(evt);
+}
 
 const stopStopwatchTimer = () => {
     clearInterval(stopwatchTimer);
-    stopwatchTimer = null;
 }
 
 const stopStopwatch = evt => {
@@ -92,7 +76,7 @@ const stopStopwatch = evt => {
         
     // stop timer
     stopStopwatchTimer();
-    
+    setState(states.STOPPED);
 };
 
 const resetStopwatch = evt => {
@@ -107,7 +91,48 @@ const resetStopwatch = evt => {
     elapsedSeconds = 0;
     elapsedMilliseconds = 0; 
     updateStopwatch();
+
+    setState(states.STANDBY);
 };
+
+const states = {
+    STANDBY: 0,
+    RUNNING: 1,
+    STOPPED: 2
+}
+
+const setState = (newState) => {
+    let start = false;
+    let resume = false;
+    let stop = false;
+    let reset = false;
+
+    switch (newState) {
+        case states.STANDBY:
+            start = true;
+            break;
+        case states.RUNNING:
+            stop = true;
+            break;
+        case states.STOPPED:
+            resume = true;
+            reset = true;
+            break;
+    }
+
+    toggleButton("#start", start);
+    toggleButton("#resume", resume);
+    toggleButton("#stop", stop);
+    toggleButton("#reset", reset);
+}
+
+const toggleButton = (id, show) => {
+    if (show) {
+        $(id).classList.remove("hide");
+    } else {
+        $(id).classList.add("hide");
+    }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
 	// set initial clock display and then set interval timer to display
@@ -118,7 +143,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	
 	// set up stopwatch event handlers
     $("#start").addEventListener("click", startStopwatch);
+    $("#resume").addEventListener("click", resumeStopwatch);
     $("#stop").addEventListener("click", stopStopwatch);
     $("#reset").addEventListener("click", resetStopwatch);
-
+    setState(states.STANDBY);
 });
