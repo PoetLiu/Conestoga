@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="background"></div>
+    <nav>
+        <h1>Just focus with me</h1>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./login.html">Login</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div id="formContainer">
+            <h2 class="title">Login</h2>
+            <form id="loginForm" action="dummy.php" method="post">
+                <div class="row">
+                    <label for="email">Email</label>
+                    <input id="email" type="text" name="email" autocomplete="on" />
+                </div>
+
+                <div class="row">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password">
+                </div>
+
+                <div class="row" id="signUp">
+                    <span>New to Pomodoro? <a href="./signUp.html">Sign up now</a></span>
+                </div>
+                <button class="button btn-white" id="submit" type="submit">Login</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p id="copyright">Copywrite @copy by Peng Liu. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="./js/login.js"></script>
+</body>
+
+</html>
