@@ -33,3 +33,12 @@ h2 {
     width: 100%;
     object-fit: cover;
 }
+
+li {
+    float: left;
+    margin-left: 50px;;
+}
+
+ul {
+    list-style: none;
+}
