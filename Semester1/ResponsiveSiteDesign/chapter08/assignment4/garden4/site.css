@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Font styles */
+h1,
+nav,
+footer {
+    font-family: 'Roboto', 'serif';
+}
+
+body,
+h2,
+h3 {
+    font-family: 'Roboto', 'Gabriola', 'sans-serif';
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+footer {
+    font-size: smaller;
+}
+
+#copyright {
+    font-family: 'serif';
+    font-style: italic;
+}
+
+/* Color styles */
+header,
+footer {
+    background-color: green;
+    color: #eee;
+}
+
+h2,
+nav a {
+    color: darkgreen;
+}
+
+footer nav a {
+    color: #eee;
+}
+
+/* Text styles*/
+h1 {
+    line-height: 400%;
+}
+
+h2,
+h3,
+nav a {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h1,
+nav,
+#copyright {
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+/* Task.3 */
+body,
+h1 {
+    margin: 0px;
+}
+
+header {
+    background-image: url(imgs/hand-grips-a-gardening-tool-to-cut-back-a-plant.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+h1 {
+    background-color: rgba(0, 255, 0, 0.5);
+}
+
+nav a {
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+#wrapper {
+    width: 80%;
+    margin: auto;
+}
+
+footer {
+    padding: 10px 10%;
+    margin-top: 20px;
+}
+
+ul {
+    padding: 0px;
+    list-style: none;
+}
+
+footer nav a {
+    display: block;
+    padding: 0px;
+    text-align: left;
+}
+
+#heroimg {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+#categories {
+    margin: 40px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+#categories img {
+    margin-right: 20px;
+}
+
+#categories section {
+    margin-bottom: 20px;
+}
+
+nav a {
+    padding: 10px 40px;
+}
+
+nav a:hover {
+    text-shadow: 0px 0px 1px rgb(20, 70, 20);
+}
+
+/* 2. */
+main {
+    border-left: 1px solid rgb(158, 194, 143);
+    padding: 0px 40px;
+}
+
+/* 3. */
+h1 a {
+    color: #eee;
+    text-decoration: none;
+}
+
+h1 a:hover {
+    text-shadow: 2px 2px 10px white;
+}
+
+/* 5. */
+.icon {
+    display: block;
+    color: rgb(35, 102, 12);
+    font-size: 3em;
+}
+
+/* 6. */
+.item25 {
+    width: 23%;
+    text-align: center;
+    box-shadow: 0px 0px 20px #eee;
+}
+
+/* 8. */
+#categories img {
+    width: 100%;
+    object-fit: cover;
+}
+
+#categories section:nth-of-type(1) {
+    grid-row: 1/3;
+}
+
+#categories h3 {
+    margin-top: 0;
+}
+
+/* 9. */
+#wrapper {
+    width: 90%;
+}
+
+
+/* Assignment2-2 */
+/* 1. */
+.mobile {
+    display: none;
+}
+
+#pagecontainer {
+    display: grid;
+    grid-template-columns: 200px auto;
+}
+
+header,
+footer {
+    grid-column: 1 / 4;
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer>div {
+    flex-grow: 1;
+    padding-left: 10%;
+}
+
+#copyright {
+    width: 100%;
+}
+
+#multicol {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gardening-container {
+    display: flex;
+    gap: 1.5em;
+}
+
+.gardening-item {
+    background-color: darkgreen;
+    color: white;
+    padding: 15px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+table {
+    width: 70%;
+    margin: 0 auto;
+}
+
+thead {
+    background-color: green;
+    color: #eee;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(178, 214, 163);
+}
+
+th,
+td {
+    padding: 5px 0;
+    text-align: center;
+}
+
+th, caption, form label {
+    font-family: 'Roboto', 'Gabriola', 'sans-serif';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+caption {
+    font-weight: 600;
+}
+
+form {
+    width: 70%;
+    margin: 0 auto;
+    box-shadow: 0px 0px 2px #bbb;
+    padding: 10px;
+
+    display: grid;
+    grid-template-columns: 150px auto;
+    grid-column-gap :15px;
+}
+
+label + * {
+    margin-bottom: 15px;
+}
+
+input[type=submit] {
+    justify-self: start;
+}
+
+/* 2. */
+@media all and (max-width: 1024px) {
+
+    /* b. */
+    nav ul li {
+        display: inline-block;
+    }
+
+    footer nav ul li {
+        display: block;
+    }
+
+
+    /* c. */
+    h1 {
+        font-size: 2.5em;
+    }
+
+    /* d. */
+    nav a {
+        padding: 10px 30px;
+    }
+
+    /* e. */
+    #categories section {
+        width: 100%;
+    }
+
+    #pagecontainer {
+        display: block;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    footer nav ul {
+        flex-direction: column;
+    }
+
+    form, table {
+        width: 90%;
+    }
+}
+
+/* 3. */
+@media all and (max-width: 760px) {
+
+    /* a. */
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    /* b. */
+    nav {
+        border-bottom: 1px solid;
+    }
+
+    /* c. */
+    .item25 {
+        width: 50%;
+    }
+
+    /* d. */
+    nav ul li {
+        display: block;
+    }
+
+    /* e. */
+    #categories img {
+        width: 100%;
+    }
+
+    /* f. */
+    footer .item33 {
+        display: block;
+        padding-left: 40%;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    #multicol {
+        flex-wrap: wrap;
+    }
+
+    footer>div {
+        width: 100%;
+    }
+
+    #categories {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gardening-container {
+        flex-direction: column;
+    }
+
+    form, table {
+        width: 100%;
+    }
+
+    form {
+        padding: 0;
+        box-shadow: none;
+        grid-template-columns: 1fr;
+    }
+
+    input[type=submit] {
+        justify-self: stretch;
+    }
+}
+

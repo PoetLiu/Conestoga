@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Personal timer</title>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link href="./css/jquery-ui.min.css" rel="stylesheet">    
+    <link href="./css/timer.css" rel="stylesheet">
+</head>
+	
+<body>
+	<main>
+		<h1>Personal Timer</h1>
+        <h2>Please enter the total time and interval for the timer in seconds</h2>
+	    <label for="time">Total time:</label>
+	    <input type="text" id="time">
+	    <span id="time_error">*</span><br>
+        <label for="interval">Interval:</label>
+	    <input type="text" id="interval">
+	    <span id="interval_error">*</span><br>
+        <label>&nbsp;</label>
+        <input type="button" id="start_timer" value="Start Timer"><br><br>		
+		<label>Elapsed time:</label> 
+		<div id="progressbar"></div>
+        <div id="complete">
+ 			<span></span>       	
+        </div>	
+		<div id="stName">
+			<small>&copy; "Peng/8903532" 2023</small>
+		</div>
+	</main>
+	
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./js/jquery-ui.min.js"></script>
+	<script src="./js/timer.js"></script>
+</body>
+</html>
