@@ -1,0 +1,10 @@
+DELIMITER //
+CREATE FUNCTION sales_tax_rate(state_code CHAR(2))
+RETURNS DECIMAL(3,2) READS SQL DATA
+BEGIN
+DECLARE rate DECIMAL(3,2);
+DECLARE CONTINUE HANDLER FOR NOT FOUND SET rate = 0;
+SELECT tax_rate INTO rate FROM sales_tax_rate WHERE state =
+state_code;
+RETURN rate;
+END;
