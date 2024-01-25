@@ -1,0 +1,11 @@
+@media print{
+    body {
+        font-size: 40px;
+    }
+}
+
+@media screen {
+    body {
+        font-size: 16px;
+    }
+}

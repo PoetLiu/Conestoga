@@ -1,5 +1,5 @@
 # sales_tax_rate.sql
-
+use liu32;
 DROP TABLE IF EXISTS sales_tax_rate;
 #@ _CREATE_TABLE_
 CREATE TABLE sales_tax_rate
@@ -15,4 +15,4 @@ CREATE TABLE sales_tax_rate
 
 SELECT 'Loading sales_tax_rate_table...' As Message;
 SELECT 'Note: These tax rates are fictitious' As Message;
-LOAD DATA LOCAL INFILE 'sales_tax_rate.txt' INTO TABLE sales_tax_rate;
+LOAD DATA LOCAL INFILE '/usr/local/var/mysql/AdvDatabase/sales_tax_rate.txt' INTO TABLE sales_tax_rate;
