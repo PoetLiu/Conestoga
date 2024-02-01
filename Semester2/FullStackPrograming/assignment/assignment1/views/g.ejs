@@ -1,0 +1,18 @@
+<%- include('./partials/header.ejs') %>
+<body>
+    <%- include('./partials/navbar.ejs') %>
+    <h2 class="title">G Test</h2>
+    <form id="login" class="shadow p-3 mb-5 bg-body rounded">
+        <div class="mb-3">
+            <label for="licenseNumber" class="form-label">License Number</label>
+            <input type="text" class="form-control" id="licenseNumber" aria-describedby="licenseNumberHelp"
+                required>
+            <div id="licenseNumberHelp" class="form-text">Must be 8 characters(alpha numberic).</div>
+        </div>
+      <div class="text-center">
+        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form> 
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

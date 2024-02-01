@@ -5,6 +5,7 @@ const app = new express();
 
 const path = require("path");
 
+app.set("view-engine", "ejs");
 app.use(express.static("public"));
 
 const port = 9090;
@@ -20,25 +21,17 @@ app.get("/", (req, res) => {
 });
 
 app.get("/g", (req, res) => {
-    res.send(`
-        <h1>Welcome to G Page</h1>
-    `);
+    res.render(`g.ejs`);
 });
 
 app.get("/g2", (req, res) => {
-    res.send(`
-        <h1>Welcome to G2 Page</h1>
-    `);
+    res.render(`g2.ejs`);
 });
 
 app.get("/dashboard", (req, res) => {
-    res.send(`
-        <h1>Welcome to Dashboard Page</h1>
-    `);
+    res.render(`dashboard.ejs`);
 });
 
 app.get("/login", (req, res) => {
-    res.send(`
-        <h1>Welcome to Login Page</h1>
-    `);
+    res.render(`login.ejs`);
 });
