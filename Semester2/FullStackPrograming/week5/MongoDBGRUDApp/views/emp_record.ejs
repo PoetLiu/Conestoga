@@ -1,36 +1,33 @@
 <%- include('./partials/header.ejs'); %>
 <body>
-    <h2>Welcome from Insert employee page.</h2>
-    <form action="/insert" method="post">
+    <h2>Welcome from A Single Employee Record Page.</h2>
+    <form action="#">
         <div class="mb-3">
             <label for="ename" class="form-label">Employee Name</label>
-            <input type="text" class="form-control" id="ename" name="e_name">
+            <input type="text" class="form-control" id="ename" name="e_name" value="<%= emp.name %>">
         </div>
 
         <div class="mb-3">
             <label for="econ" class="form-label">Contact</label>
-            <input type="text" class="form-control" id="econ" name="e_con">
+            <input type="text" class="form-control" id="econ" name="e_con" value="<%= emp.contact %>">
         </div>
 
         <div class="mb-3">
             <label for="esalary" class="form-label">Salary</label>
-            <input type="text" class="form-control" id="esalary" name="e_salary">
+            <input type="text" class="form-control" id="esalary" name="e_salary" value="<%= emp.salary %>">
         </div>
 
 
         <div class="mb-3">
             <label for="eemail" class="form-label">Email</label>
-            <input type="text" class="form-control" id="eemail" name="e_email">
+            <input type="text" class="form-control" id="eemail" name="e_email" value="<%= emp.email %>">
         </div>
 
 
         <div class="mb-3">
             <label for="ejdate" class="form-label">Joining Date</label>
-            <input type="date" class="form-control" id="ejdate" name="e_jdate">
+            <input type="date" class="form-control" id="ejdate" name="e_jdate" value="<%= emp.joiningDate %>">
         </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </body>
-
 </html>

@@ -11,9 +11,12 @@ mongoose.connect(uri)
 
 const emp_schema = mongoose.Schema({
     name: {type: String, required: true},
-    age: {type: Number, required: true},
     contact: {type: String, required: true},
+    salary: {type: Number, required: true},
     email: {type: String, required: true},
+    joiningDate: {type: String, required: true},
 });
 
-const emp_model = mongoose.model("employee", emp_schema);
+const emp_model = mongoose.model("Cestar_Worker", emp_schema);
+
+module.exports = emp_model;
