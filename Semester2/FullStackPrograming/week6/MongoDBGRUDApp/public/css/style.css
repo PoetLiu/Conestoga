@@ -1,0 +1,13 @@
+body {
+    background-color: blanchedalmond;
+}
+
+h2 {
+    color: indigo;
+    text-align: center;
+}
+
+form {
+    width: 60%;
+    margin: 10px auto;
+}

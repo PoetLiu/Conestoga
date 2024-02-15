@@ -1,10 +1,11 @@
 <%- include('./partials/header.ejs'); %>
 <body>
+    <%- include('./partials/navbar.ejs'); %>
     <h2>Welcome from A Single Employee Record Page.</h2>
     <form action="#">
         <div class="mb-3">
             <label for="ename" class="form-label">Employee Name</label>
-            <input type="text" class="form-control" id="ename" name="e_name" value="<%= emp.name %>">
+            <input type="text" class="form-control" id="ename" name="e_name" value="<%= emp.name %>" disabled>
         </div>
 
         <div class="mb-3">
