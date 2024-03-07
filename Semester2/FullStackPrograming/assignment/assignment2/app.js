@@ -58,7 +58,8 @@ const carDetailsValidator = [
     body('platno', 'The minimun make length is 6 characters').isLength({min: 4}),
 ];
 
-app.post("/edit", carDetailsValidator, async (req, res) => {
+app.post("/edit/:license_number", carDetailsValidator, async (req, res) => {
+    const licenseNumber = req.params.license_number;
     const data = req.body;
     console.log(data);
     const errors = validationResult(req);
@@ -68,9 +69,8 @@ app.post("/edit", carDetailsValidator, async (req, res) => {
     }
 
     try {
-
-        const userUpdated = await user.updateOne({
-            licenseNumber: data.licenseNumber
+        const userUpdated = await user.findOneAndUpdate({
+            licenseNumber: licenseNumber 
         }, {
             carDetails: {
                 make: data.make,
@@ -78,6 +78,8 @@ app.post("/edit", carDetailsValidator, async (req, res) => {
                 year: data.year,
                 platno: data.platno,
             }
+        }, {
+            new: true
         });
         console.log(userUpdated);
         res.render(`message.ejs`, {message: `Your Car Details Updated Successfully!`});

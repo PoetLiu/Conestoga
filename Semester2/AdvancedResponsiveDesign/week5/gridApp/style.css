@@ -1,0 +1,62 @@
+body {
+    display: grid;
+    height: 90vh;
+    border: 1px solid blue;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "myHeader myHeader myHeader myHeader myHeader myHeader" 
+    "myNav myMain myMain myMain myAside myAside"
+    "myNav myMain myMain myMain myAside myAside"
+    "myNav myMain myMain myMain myAside myAside"
+    "myNav myMain myMain myMain myAside myAside"
+    "myFooter myFooter myFooter myFooter myFooter myFooter"
+    ;
+}
+
+header {
+    grid-area: myHeader;
+    border: 1px solid blue;
+}
+
+nav {
+    grid-area: myNav;
+    border: 1px solid blue;
+}
+
+main {
+    display: grid;
+    grid-area: myMain;
+    border: 1px solid blue;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "MainConentOne MainConentOne"
+    "MainConentTwo MainConentThree"
+    ;
+}
+
+#MainConentOne {
+    grid-area: MainConentOne;
+    border: 1px solid blue;
+}
+
+#MainConentTwo {
+    grid-area: MainConentTwo;
+    border: 1px solid blue;
+}
+
+#MainConentThree {
+    grid-area: MainConentThree;
+    border: 1px solid blue;
+}
+
+aside {
+    grid-area: myAside;
+    border: 1px solid blue;
+}
+
+footer {
+    grid-area: myFooter;
+    border: 1px solid blue;
+}

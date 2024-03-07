@@ -1,6 +1,199 @@
+/* 
+ * 3. I've learned '::after' which insets something after selected element.
+ * And a transform function called scaleX() which resizes an element horizontally.
+ * I discovered these rules when I wanted to create effects for links.
+ */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Rock+Salt|Shadows+Into+Light|Cedarville+Cursive');
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+main {
+    color: white;
+    /* image source: https://www.pexels.com/photo/snow-top-mountain-under-clear-sky-1054218/ */
+    background: center / cover no-repeat url("../images/pexels-stephan-seeber-1054218_tdmhwy_c_scale\,w_1920.jpg");
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    background-color: #20C2F7;
+    transition: transform 0.3s;
+}
+
+a:hover:after {
+    transform: scaleX(1);
+}
+
+a:focus, a:active {
+    color: blue;
+}
+
+.active {
+    text-shadow: 1px 2px 2px #20C2F7;
+}
 
 .name {
     font-style: italic;
     font-family: 'Rock Salt', cursive;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+h1, h2 {
+    font-family:  Arial, sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    padding: 10px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-grow: 1;
+}
+
+nav ul li {
+    padding: 0 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.link-wrapper {
+    position: relative;
+}
+
+.greeting {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.quote-wrapper {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.5rem;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+    font-style: italic;
+    font-family: "Open Sans", sans-serif;
+}
+
+#aboutWrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#about {
+    display: grid;
+    max-width: 1000px;
+    grid-template-columns: 1fr 1fr;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 1) 0px 3px 8px;
+}
+
+#intro-wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr 1fr;
+    justify-items: center;
+    align-content: space-between;
+    background-color: #5069a8;
+    padding: 50px;
+}
+
+#portrait-wrapper {
+    max-height: 400px;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+#portrait {
+    width: 100%;
+    object-fit: cover;
+}
+
+#detail-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #50a88f;
+    padding: 20px 30px;
+}
+
+#topic-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#topic {
+    color: black;
+    background-color: white;
+    width: 80%;
+    max-width: 1100px;
+    padding: 20px 60px;
+    box-shadow: rgba(0, 0, 0, 1) 0px 3px 8px;
+    border-radius: 5px;
+
+    display: grid;
+    justify-items: center;
+    align-content: space-between;
+    grid-gap: 10px;
+}
+
+#topic section {
+    width: 100%;
+}
+
+#messi-video {
+    min-width: 560px;
+    min-height: 400px;
+    width: 100%;
+    height: auto;
+}
+
+#topic h2 {
+    text-align: center;
+}
+
+#topic img {
+    width: 100%;
+    height: auto;
 }
