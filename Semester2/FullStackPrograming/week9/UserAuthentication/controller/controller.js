@@ -16,7 +16,7 @@ class Controller {
                 email: form.email,
             })
             if (!user) {
-                res.send("user is not found");
+                res.redirect("/signup");
                 return;
             } 
             
@@ -25,7 +25,7 @@ class Controller {
                 req.session.isValid = true;
                 res.redirect("/dashboard");
             } else {
-                res.send("pwd is incorrect.");
+                res.redirect("/login");
             }
             
         } catch (error) {
