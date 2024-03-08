@@ -156,6 +156,14 @@ class Controller {
                 return;
             }
 
+            let user = await User.findOne({
+                username: form.username
+            })
+            if (user) {
+                res.render(`message.ejs`, { message: `The username already existed.` });
+                return;
+            }
+
             const hashedPwd = await bcrypt.hash(data.password, 10);
             const newUser = new User({
                 username: data.username,

@@ -3,7 +3,7 @@
   <body>
     <%- include('./partials/navbar.ejs', {userType: user?.userType}) %>
       <h2 class="title">G Test</h2>
-      <form action="/edit/<%= user.licenseNumber %>" method="POST" id="g2-form" class="shadow mb-5 bg-body rounded">
+      <form action="/edit" method="POST" id="g2-form" class="shadow mb-5 bg-body rounded">
         <h3>Personal Information</h3>
         <div class="mb-3">
           <label for="firstname" class="form-label">First Name</label>

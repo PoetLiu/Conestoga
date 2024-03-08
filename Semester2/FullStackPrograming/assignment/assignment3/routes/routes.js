@@ -19,7 +19,7 @@ const carDetailsValidator = [
     body('platno', 'The minimun make length is 6 characters').isLength({min: 4}),
 ];
 
-router.post("/edit/:license_number", carDetailsValidator, Controller.edit_post);
+router.post("/edit", carDetailsValidator, Controller.edit_post);
 
 router.get("/dashboard", Controller.dashboard_get);
 
