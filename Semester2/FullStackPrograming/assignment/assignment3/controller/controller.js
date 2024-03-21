@@ -15,12 +15,14 @@ class Controller {
             console.log(user);
             if (user) {
                 if (user.licenseNumber === 'DEFAULT') {
+                    req.session.msg = `Dear ${user.username}, please provide details.`;
                     res.redirect("/g2");
                 } else {
-                    res.render("g.ejs", { user: user });
+                    res.render("g.ejs", { msg: this.getMsgOnce(req), user: user });
                 }
             } else {
-                res.render("message.ejs", {userType: req.session.userType, message: `No User Found.` });
+                req.session.msg = `Unknow userId: ${req.session.userId}.`;
+                res.redirect("/login")
             }
         } catch (err) {
             console.log(`User Not Featched from db due to the error below\n${err}`);
@@ -33,14 +35,16 @@ class Controller {
             const user = await User.findById(req.session.userId);
             console.log(user);
             if (user) {
+                const msg = this.getMsgOnce(req);
                 if (user.licenseNumber === 'DEFAULT') {
                     // if user infos are 'DEFAULT', display an empty page.
-                    res.render("g2.ejs", { user: { userType: user.userType } });
+                    res.render("g2.ejs", { msg: msg, user: { userType: user.userType } });
                 } else {
-                    res.render("g2.ejs", { user: user });
+                    res.render("g2.ejs", { msg: msg, user: user });
                 }
             } else {
-                res.render("message.ejs", {userType: req.session.userType, message: `No User Found.` });
+                req.session.msg = `Unknow userId: ${req.session.userId}.`;
+                res.redirect("/login")
             }
         } catch (err) {
             console.log(`User Not Featched from db due to the error below\n${err}`);
@@ -51,10 +55,11 @@ class Controller {
     static edit_post = async (req, res) => {
         const data = req.body;
         console.log(data);
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            console.log(`Validate failed, errors: \n${errors.array()}`);
-            return res.send({ errors: errors.array() });
+        const errors = this.validate(req);
+        if (errors) {
+            req.session.msg = `Validate failed, errors: \n${errors}`;
+            res.redirect("/g")
+            return;
         }
 
         try {
@@ -71,18 +76,24 @@ class Controller {
                 new: true
             });
             console.log(user);
-            res.render(`message.ejs`, {userType: req.session.userType, message: `Your Car Details Updated Successfully!` });
+            req.session.msg = `Your Car Details Updated Successfully!`;
+            res.redirect("/g")
         } catch (err) {
             console.log(`User not updated to MongoDB, due to err: \n${err}`);
             res.send(err);
         }
     };
 
-
     static g2_post = async (req, res) => {
         try {
             const data = req.body;
             console.log(data);
+            const errors = this.validate(req);
+            if (errors) {
+                req.session.msg = `Validate failed, errors: \n${errors}`;
+                res.redirect("/g2")
+                return;
+            }
 
             const hashedLicenseNumber = await bcrypt.hash(data.licenseNumber, 10);
             const user = await User.findByIdAndUpdate(req.session.userId, {
@@ -99,19 +110,41 @@ class Controller {
             });
 
             console.log(user);
-            res.render(`message.ejs`, {userType: req.session.userType, message: `Your G2 Test Booked Successfully!` });
+            req.session.msg = `Your G2 Test Booked Successfully!`;
+            res.redirect("/g2")
         } catch (err) {
             console.log(`User not saved to MongoDB, due to err: \n${err}`);
             res.send(err);
         }
     };
 
+    static validate = (req) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            const msg = errors.formatWith(error => error.msg).array();
+            console.log(msg);
+            return msg;
+        }  else {
+            return;
+        }
+    }
+
     static dashboard_get = (req, res) => {
-        res.render(`dashboard.ejs`, { userType: req.session.userType });
+        res.render(`dashboard.ejs`, {
+            msg: this.getMsgOnce(req),
+            userType: req.session.userType
+        });
     };
 
+    static getMsgOnce = (req) => {
+        const msg = req.session.msg;
+        delete req.session.msg;
+        console.log(msg);
+        return msg;
+    }
+
     static login_get = (req, res) => {
-        res.render(`login.ejs`, { userType: req.session.userType });
+        res.render(`login.ejs`, { msg: this.getMsgOnce(req), userType: req.session.userType });
     };
 
     static login_post = async (req, res) => {
@@ -123,6 +156,7 @@ class Controller {
                 username: form.username
             })
             if (!user) {
+                req.session.msg = `Dear ${form.username}, your account does not exist, please signup first.`;
                 res.redirect("/signup");
                 return;
             }
@@ -131,8 +165,10 @@ class Controller {
             if (matched) {
                 req.session.userId = user._id;
                 req.session.userType = user.userType;
+                req.session.msg = `Dear ${form.username}, login successfull.`;
                 res.redirect("/dashboard");
             } else {
+                req.session.msg = `Dear ${form.username}, the password isn't correct.`;
                 res.redirect("/login");
             }
 
@@ -143,7 +179,7 @@ class Controller {
     }
 
     static signup_get = (req, res) => {
-        res.render(`signup.ejs`, { userType: req.session.userType });
+        res.render(`signup.ejs`, { userType: req.session.userType, msg: this.getMsgOnce(req) });
     };
 
     static signup_post = async (req, res) => {
@@ -152,15 +188,17 @@ class Controller {
             console.log(data);
 
             if (data.password !== data.confirmPassword) {
-                res.render(`message.ejs`, { message: `The passwords you entered doesn't match.` });
+                req.session.msg = `The passwords you entered doesn't match.`;
+                res.redirect("/signup")
                 return;
             }
 
             let user = await User.findOne({
-                username: form.username
+                username: data.username
             })
             if (user) {
-                res.render(`message.ejs`, { message: `The username already existed.` });
+                req.session.msg = `The username ${user.username} already existed, please login`;
+                res.redirect("/login")
                 return;
             }
 
@@ -173,6 +211,7 @@ class Controller {
 
             const userSaved = await newUser.save();
             console.log(userSaved);
+            req.session.msg = `Dear ${userSaved.username}, your account signup successfully.`;
             res.redirect("/login");
         } catch (err) {
             console.log(`User not saved to MongoDB, due to err: \n${err}`);

@@ -28,7 +28,7 @@ main > * {
     object-fit: cover;
 }
 
-form {
+.form {
     width: 60%;
     margin: 0 auto;
     padding: 60px 30px;

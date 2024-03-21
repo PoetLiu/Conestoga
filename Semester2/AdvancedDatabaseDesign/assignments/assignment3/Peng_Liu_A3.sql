@@ -43,15 +43,16 @@ CREATE TABLE IF NOT EXISTS `enrollment` (
     REFERENCES `term` (`term_name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
-INSERT INTO `student` (`first_name`, `last_name`, `email`) VALUES
-('Lionel', 'Messi', 'LMessi123@conestogac.on.ca'),
-('Peng', 'Liu', 'Pliu3532@conestogac.on.ca'),
-('Cristiano', 'Ronaldo', 'CRonaldo999@conestogac.on.ca');
+INSERT INTO `student` (`student_id`, `first_name`, `last_name`, `email`) VALUES
+(8907777, 'Lionel', 'Messi', 'LMessi123@conestogac.on.ca'),
+(8903532, 'Peng', 'Liu', 'Pliu3532@conestogac.on.ca'),
+(8901010, 'Cristiano', 'Ronaldo', 'CRonaldo999@conestogac.on.ca');
 
 INSERT INTO `course` (`course_title`) VALUES
 ('Algorithms and Complexity'),
 ('Computer Graphics'),
-('Machine Learning');
+('Machine Learning'),
+('Software Engineering');
 
 INSERT INTO `term` (`term_name`) VALUES
 ('S2023'),
@@ -59,12 +60,15 @@ INSERT INTO `term` (`term_name`) VALUES
 ('W2024');
 
 INSERT INTO `enrollment` (`student_id`, `course_id`, `grade`, `term_name`) VALUES
-('1', '1', 'A', 'S2023'),
-('1', '2', 'B+', 'F2023'),
-('1', '3', NULL, 'W2024'),
-('2', '1', 'B', 'S2023'),
-('2', '2', 'A', 'F2023'),
-('2', '3', 'B+', 'F2023'),
-('3', '3', 'B', 'S2023'),
-('3', '2', 'A', 'F2023'),
-('3', '1', NULL, 'W2024');
+('8907777', '1', 'A', 'S2023'),
+('8907777', '2', 'B+', 'F2023'),
+('8907777', '3', 'B', 'F2023'),
+('8907777', '4', NULL, 'W2024'),
+('8903532', '1', 'B', 'S2023'),
+('8903532', '2', 'A', 'F2023'),
+('8903532', '3', 'B+', 'F2023'),
+('8903532', '4', 'A+', 'F2023'),
+('8901010', '3', 'B', 'S2023'),
+('8901010', '2', 'A', 'F2023'),
+('8901010', '1', NULL, 'W2024'),
+('8901010', '4', 'C', 'F2023');
