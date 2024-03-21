@@ -20,13 +20,12 @@ const router = express.Router();
 
 router.get("/", Controller.home_get);
 
-router.get("/g", Authenticator, Controller.g_get);
+router.get("/g", Controller.g_get);
+router.post("/g", carDetailsValidator, Controller.g_post);
 
-router.get("/g2", Authenticator, Controller.g2_get);
+router.get("/g2", Controller.g2_get);
 router.post("/g2", userDetailsValidator, carDetailsValidator, Controller.g2_post);
 
-
-router.post("/edit", carDetailsValidator, Controller.edit_post);
 
 router.get("/dashboard", Controller.dashboard_get);
 

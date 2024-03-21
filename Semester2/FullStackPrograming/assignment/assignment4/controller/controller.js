@@ -53,7 +53,7 @@ class Controller {
         }
     };
 
-    static edit_post = async (req, res) => {
+    static g_post = async (req, res) => {
         const data = req.body;
         console.log(data);
         const errors = this.validate(req);
