@@ -1,13 +1,13 @@
 import Controller from "../controller/controller.js";
 import express from "express";
 import {body, validationResult} from "express-validator";
-import Authenticator from "../middlewares/validate.js";
 
 const userDetailsValidator = [
     body('firstName', 'The minium firstName make length is 1 characters').isLength({min: 1}),
     body('lastName', 'The minimum lastName length is 1 characters').isLength({min: 1}),
     body('age', 'Age must be Alphanumeric').isAlphanumeric(),
     body('licenseNumber', 'The minimun platno length is 17 characters').isLength({min: 17}), 
+    body('appointmentId', 'The Date and Time for appointment are required').notEmpty(), 
 ]
 
 const carDetailsValidator = [
@@ -39,6 +39,7 @@ router.post("/signup", Controller.signup_post);
 
 
 router.get("/appointment", Controller.appointment_get);
+router.get("/appointment_query", Controller.appointment_query_get);
 router.post("/appointment", Controller.appointment_post);
 
 export default router;

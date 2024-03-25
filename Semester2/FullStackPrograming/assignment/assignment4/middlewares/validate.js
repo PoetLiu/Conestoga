@@ -1,11 +1,12 @@
 const publicPaths = ["dashboard", "login", "signup"];
 const validPaths = {
-    "Driver": ["g2", "g", "logout"],
-    "Admin": ["appointment", "logout"]
+    "Driver": ["g2", "g", "logout", "appointment_query"],
+    "Admin": ["appointment", "logout", "appointment_query"]
 }
 
 const Authenticator = (req, res, next) => {
-    const path = req.url.replace('/', '');
+    const path = req.path.replace('/', '');
+    console.log(path);
     if (publicPaths.includes(path)) {
         next();
         return;

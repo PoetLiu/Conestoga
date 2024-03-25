@@ -10,9 +10,13 @@ class Controller {
         `);
     };
 
+    static getUserById = async (id) => {
+        return User.findById(id).populate("appointment");
+    }
+
     static g_get = async (req, res) => {
         try {
-            const user = await User.findById(req.session.userId);
+            const user = await this.getUserById(req.session.userId);
             console.log(user);
             if (user) {
                 if (user.licenseNumber === 'DEFAULT') {
@@ -33,7 +37,7 @@ class Controller {
 
     static g2_get = async (req, res) => {
         try {
-            const user = await User.findById(req.session.userId);
+            const user = await this.getUserById(req.session.userId);
             console.log(user);
             if (user) {
                 const msg = this.getMsgOnce(req);
@@ -96,12 +100,24 @@ class Controller {
                 return;
             }
 
+            let appointment = await Appointment.findById(data.appointmentId);
+            if (!appointment || !appointment.isTimeSlotAvailable) {
+                req.session.msg = `Your appointment doesn't exist or not available.`;
+                res.redirect("/g2");
+                return;
+            }
+            appointment = await Appointment.findByIdAndUpdate(data.appointmentId,
+                { isTimeSlotAvailable: false }
+            );
+            console.log(appointment);
+
             const hashedLicenseNumber = await bcrypt.hash(data.licenseNumber, 10);
             const user = await User.findByIdAndUpdate(req.session.userId, {
                 firstName: data.firstName,
                 lastName: data.lastName,
                 age: data.age,
                 licenseNumber: hashedLicenseNumber,
+                appointment: data.appointmentId,
                 carDetails: {
                     make: data.make,
                     model: data.model,
@@ -125,7 +141,7 @@ class Controller {
             const msg = errors.formatWith(error => error.msg).array();
             console.log(msg);
             return msg;
-        }  else {
+        } else {
             return;
         }
     }
@@ -140,7 +156,6 @@ class Controller {
     static getMsgOnce = (req) => {
         const msg = req.session.msg;
         delete req.session.msg;
-        console.log(msg);
         return msg;
     }
 
@@ -231,7 +246,15 @@ class Controller {
     };
 
     static appointment_get = (req, res) => {
-        res.render(`appointment.ejs`, { userType: req.session.userType, msg: this.getMsgOnce(req)});
+        res.render(`appointment.ejs`, { userType: req.session.userType, msg: this.getMsgOnce(req) });
+    };
+
+    static appointment_query_get = async (req, res) => {
+        const date = req.query.date;
+        const appointments = await Appointment.find({
+            date: date,
+        })
+        res.json(appointments);
     };
 
     static appointment_post = async (req, res) => {

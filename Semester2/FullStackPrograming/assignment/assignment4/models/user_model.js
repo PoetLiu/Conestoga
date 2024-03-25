@@ -16,6 +16,10 @@ const userSchema = mongoose.Schema({
     lastName: {type: String, required: true, default: "DEFAULT"},
     age: {type: Number, required: true, default: 0},
     licenseNumber: {type: String, required: true, default: "DEFAULT"},
+    appointment: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'appointment'
+    },
     carDetails: {
         make: {type: String, required: true, default: "DEFAULT"},
         model: {type: String, required: true, default: "DEFAULT"},

@@ -11,6 +11,7 @@ mongoose.connect(uri)
 const appointmentSchema = mongoose.Schema({
     date: {type: String, required: true},
     time: {type: String, required: true},
+    isTimeSlotAvailable: {type: Boolean, default: true}
 });
 
 const appointmentModel = mongoose.model("appointment", appointmentSchema);
