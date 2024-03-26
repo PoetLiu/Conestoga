@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Project1</string>
+    <string name="chopping_cart">Cart</string>
+    <string name="content_description_cart">Cart</string>
+    <string name="user">User</string>
+    <string name="content_description_user">User</string>
+    <string name="favorite">Favorite</string>
+    <string name="content_description_favorite">Favorite</string>
+</resources>
