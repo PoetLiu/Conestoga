@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Weather API</h1>
+   <p>A simple weather api service.</p> 
+   <p>Enter a City <input id="city"></p>
+
+   <button onclick="getData()">Get weather Data</button>
+   <div id="weather"></div>
+
+   <script>
+        const getData = () => {
+            const city = document.getElementById("city").value;
+            const encodedCity = encodeURIComponent(city);
+            fetch(`/api/weather/${encodedCity}`)
+                .then(response => response.json())
+                .then(json => {
+                    let html = '';
+                    if(json.status == "ok") {
+                        let weather = "Sunny";
+                        const humidity = parseInt(json.humidity);
+                        if (humidity >= 60) {
+                            weather = json.temperature < 0 ? "Snowing" : "Raining";
+                        }
+                        html = `
+                            <p><b>City</b> ${json.city}</p>
+                            <p><b>Temperature</b> ${json.temperature} ${json.unit}</p>
+                            <p><b>Humidity</b> ${json.humidity}</p>
+                            <p><b>Weather</b> ${weather}</p>
+                        `;
+                    } else {
+                        html = `<p>${json.error}</p>`;
+                    }
+
+                    document.getElementById("weather").innerHTML = html;
+                })
+                .catch(err => console.log(err));
+        }
+   </script>
+</body>
+</html>

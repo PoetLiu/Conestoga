@@ -1,0 +1,38 @@
+[
+    {
+        "city": "kichener",
+        "temperature": 21,
+        "unit": "celcius",
+        "humidity": "20%"
+    },
+    {
+        "city": "kichener",
+        "temperature": 25,
+        "unit": "celcius",
+        "humidity": "32%"
+    },
+    {
+        "city": "kichener",
+        "temperature": 27,
+        "unit": "celcius",
+        "humidity": "60%"
+    },
+    {
+        "city": "kichener",
+        "temperature": 10,
+        "unit": "celcius",
+        "humidity": "40%"
+    },
+    {
+        "city": "kichener",
+        "temperature": -6,
+        "unit": "celcius",
+        "humidity": "60%"
+    },
+    {
+        "city": "kichener",
+        "temperature": -7,
+        "unit": "celcius",
+        "humidity": "70%"
+    }
+]

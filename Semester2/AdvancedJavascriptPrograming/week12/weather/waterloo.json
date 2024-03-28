@@ -1,0 +1,38 @@
+[
+    {
+        "city": "waterloo",
+        "temperature": 21,
+        "unit": "celcius",
+        "humidity": "20%"
+    },
+    {
+        "city": "waterloo",
+        "temperature": 25,
+        "unit": "celcius",
+        "humidity": "32%"
+    },
+    {
+        "city": "waterloo",
+        "temperature": 27,
+        "unit": "celcius",
+        "humidity": "60%"
+    },
+    {
+        "city": "waterloo",
+        "temperature": 10,
+        "unit": "celcius",
+        "humidity": "40%"
+    },
+    {
+        "city": "waterloo",
+        "temperature": -6,
+        "unit": "celcius",
+        "humidity": "60%"
+    },
+    {
+        "city": "waterloo",
+        "temperature": -7,
+        "unit": "celcius",
+        "humidity": "70%"
+    }
+]

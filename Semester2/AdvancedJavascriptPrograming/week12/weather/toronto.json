@@ -1,0 +1,38 @@
+[
+    {
+        "city": "toronto",
+        "temperature": 21,
+        "unit": "celcius",
+        "humidity": "20%"
+    },
+    {
+        "city": "toronto",
+        "temperature": 25,
+        "unit": "celcius",
+        "humidity": "32%"
+    },
+    {
+        "city": "toronto",
+        "temperature": 27,
+        "unit": "celcius",
+        "humidity": "60%"
+    },
+    {
+        "city": "toronto",
+        "temperature": 10,
+        "unit": "celcius",
+        "humidity": "40%"
+    },
+    {
+        "city": "toronto",
+        "temperature": -6,
+        "unit": "celcius",
+        "humidity": "60%"
+    },
+    {
+        "city": "toronto",
+        "temperature": -7,
+        "unit": "celcius",
+        "humidity": "70%"
+    }
+]
