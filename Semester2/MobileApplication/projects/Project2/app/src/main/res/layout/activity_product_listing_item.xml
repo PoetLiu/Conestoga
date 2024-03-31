@@ -44,7 +44,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/impact_4_basketball_shoes_1" />
+                        app:srcCompat="@drawable/default_image" />
 
                     <TextView
                         android:id="@+id/productTitleTextView"
@@ -119,16 +119,6 @@
                     android:paddingBottom="5dp">
 
                     <ImageView
-                        android:id="@+id/imageView15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:elevation="2dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/favorite_24p" />
-
-                    <ImageView
                         android:id="@+id/imageView12"
                         android:layout_width="33dp"
                         android:layout_height="20dp"
@@ -144,7 +134,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/impact_4_basketball_shoes_2" />
+                        app:srcCompat="@drawable/default_image" />
 
                     <TextView
                         android:id="@+id/textView15"

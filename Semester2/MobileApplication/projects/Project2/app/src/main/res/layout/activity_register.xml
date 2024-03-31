@@ -63,31 +63,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/FirstNameLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="First Name" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/LastNameLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Last Name" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/EmailLayout"
+            android:id="@+id/emailLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
@@ -95,11 +71,11 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email" />
+                android:hint="Email*" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/PasswordLayout"
+            android:id="@+id/passwordLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -108,12 +84,12 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="Password*"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ConfirmPasswordLayout"
+            android:id="@+id/confirmPasswordLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
@@ -122,7 +98,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Confirm pasword"
+                android:hint="Confirm pasword*"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,10 +107,10 @@
             android:layout_height="match_parent">
 
             <CheckBox
-                android:id="@+id/checkBox"
+                android:id="@+id/agreeCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="I agree terms & conditions"
+                android:text="I agree terms &amp; conditions*"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -145,7 +121,7 @@
             android:layout_marginTop="20dp">
 
             <Button
-                android:id="@+id/addToCartButton"
+                android:id="@+id/registerBtn"
                 android:layout_width="325dp"
                 android:layout_height="54dp"
                 android:backgroundTint="#135a62"
@@ -155,32 +131,20 @@
                 app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20sp"
-            android:text="Already have an account?"
-            android:textAlignment="center" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp">
 
-            <Button
-                android:id="@+id/loginBtn"
-                android:layout_width="325dp"
-                android:layout_height="54dp"
-                android:backgroundTint="@color/white"
-                android:text="Login"
-                android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <TextView
+                android:id="@+id/goLoginTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/go_login"
+                android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:strokeColor="@android:color/darker_gray"
-                app:strokeWidth="2sp" />
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

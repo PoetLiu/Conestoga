@@ -6,4 +6,6 @@
     <string name="content_description_user">User</string>
     <string name="favorite">Favorite</string>
     <string name="content_description_favorite">Favorite</string>
+    <string name="go_login">Already have an account? <u>Login now</u>.</string>
+
 </resources>

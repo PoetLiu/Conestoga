@@ -8,66 +8,82 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="353dp"
-        android:layout_height="649dp"
-        android:layout_marginTop="2dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:elevation="5dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/FirstNameLayout"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/FirstNameLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="FirstName"
-                android:text="Hello" />
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:visibility="visible">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="FirstName"
+                    android:text="Hello" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/LastNameLayout"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/LastNameLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="visible">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Last Name" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:visibility="visible">
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="Last Name" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginRight="20dp"
+                android:layout_weight="1">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/PhoneLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="Email" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_weight="1">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/PhoneLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Phone" />
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/AddressLayout"
@@ -103,7 +119,7 @@
                 android:id="@+id/PostCodeLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="1">
 
                 <com.google.android.material.textfield.TextInputEditText
