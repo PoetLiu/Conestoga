@@ -80,7 +80,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/detailImageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="300sp"
@@ -99,7 +99,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                app:layout_constraintTop_toBottomOf="@+id/detailImageView" />
 
             <TextView
                 android:id="@+id/productSubtitleTextView"

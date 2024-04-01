@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.peng.project2.dao.AppDatabase;
@@ -18,6 +19,7 @@ public class ProductListActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private AppDatabase db;
+    private FirebaseAuth mAuth;
     private StorageReference storageRef;
 
     @Override
@@ -25,6 +27,7 @@ public class ProductListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_listing);
         db = AppDatabase.getInstance(getApplicationContext());
+        mAuth = FirebaseAuth.getInstance();
 
         recyclerView = findViewById(R.id.productsRV);
         layoutManager = new LinearLayoutManager(this);
@@ -32,7 +35,7 @@ public class ProductListActivity extends AppCompatActivity {
 
         storageRef = FirebaseStorage.getInstance().getReference().child("images");
         List<Product> productList = db.productDao().getAll();
-        mAdapter = new ProductsAdapter(productList, storageRef);
+        mAdapter = new ProductsAdapter(productList, storageRef, db, mAuth);
         recyclerView.setAdapter(mAdapter);
     }
 }

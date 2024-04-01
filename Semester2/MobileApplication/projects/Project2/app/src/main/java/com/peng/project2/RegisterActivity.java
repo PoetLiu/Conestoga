@@ -17,6 +17,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.peng.project2.dao.AppDatabase;
+import com.peng.project2.entity.Cart;
 
 import java.util.Objects;
 
@@ -29,12 +32,14 @@ public class RegisterActivity extends AppCompatActivity {
     private CheckBox agreePolicyCk;
     private Button registerBtn;
     private FirebaseAuth mAuth;
+    private AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        db = AppDatabase.getInstance(getApplicationContext());
         mAuth = FirebaseAuth.getInstance();
 
         goLoginTxt = findViewById(R.id.goLoginTxt);
@@ -64,6 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
+                            initUser();
                             showSuccessDialog();
                         } else {
                             // If sign in fails, display a message to the user.
@@ -76,6 +82,12 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     });
         });
+    }
+
+    private void initUser() {
+        FirebaseUser user = mAuth.getCurrentUser();
+        Cart cart = new Cart(user.getUid());
+        db.cartDao().insert(cart);
     }
 
     private void goToLogin() {

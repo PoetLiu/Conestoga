@@ -1,7 +1,10 @@
 package com.peng.project2.entity;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
+import java.io.File;
 
 @Entity
 public class Product {
@@ -16,6 +19,9 @@ public class Product {
     private Integer stock;
     private String imageUrl;
 
+    @Ignore
+    private File tmpImageFile;
+
     public Product() {
     }
 
@@ -29,6 +35,14 @@ public class Product {
         this.price = price;
         this.stock = stock;
         this.imageUrl = imageUrl;
+    }
+
+    public File getTmpImageFile() {
+        return tmpImageFile;
+    }
+
+    public void setTmpImageFile(File tmpImageFile) {
+        this.tmpImageFile = tmpImageFile;
     }
 
     public String getSubTitle() {

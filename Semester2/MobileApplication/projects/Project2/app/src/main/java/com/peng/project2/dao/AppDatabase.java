@@ -14,6 +14,7 @@ import com.peng.project2.entity.Product;
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE;
     public abstract CartDao cartDao();
+    public abstract CartItemDao cartItemDao();
     public abstract ProductDao productDao();
 
     public static AppDatabase getInstance(Context context) {
