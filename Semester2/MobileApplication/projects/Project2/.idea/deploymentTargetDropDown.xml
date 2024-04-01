@@ -5,6 +5,12 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="initDb()">
+        <State />
+      </entry>
+      <entry key="selectDb()">
+        <State />
+      </entry>
     </value>
   </component>
 </project>

@@ -12,9 +12,9 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -68,8 +68,9 @@ public class RegisterActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            String cause = task.getException().getLocalizedMessage();
                             Toast.makeText(RegisterActivity.this,
-                                    "Register failed, Please try again later.",
+                                    "Register failed: " + cause,
                                     Toast.LENGTH_SHORT
                             ).show();
                         }
@@ -83,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void showSuccessDialog() {
-         new AlertDialog.Builder(this.getApplicationContext())
+        new MaterialAlertDialogBuilder(this)
                 .setTitle("Register Successfully")
                 .setMessage("Your account has been created successfully!")
                 .setPositiveButton("Login Now", (dialog, id) -> {
@@ -97,8 +98,6 @@ public class RegisterActivity extends AppCompatActivity {
                 .create()
                 .show();
     }
-
-
 
     private boolean validateForm() {
         boolean valid = true;

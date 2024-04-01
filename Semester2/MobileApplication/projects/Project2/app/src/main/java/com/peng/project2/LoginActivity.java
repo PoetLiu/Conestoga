@@ -50,18 +50,13 @@ public class LoginActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-/*
         if (currentUser != null) {
             goToProducts();
         }
-*/
     }
 
     private boolean validateForm() {
-        boolean valid = true;
-        if (!validEmail(emailLayout)) {
-            valid = false;
-        }
+        boolean valid = validEmail(emailLayout);
 
         if (!validPassword(passwordLayout)) {
             valid = false;

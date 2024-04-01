@@ -2,12 +2,20 @@ package com.peng.project2;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.common.base.Strings;
+import com.google.firebase.storage.StorageReference;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.function.Consumer;
+import org.apache.commons.io.FilenameUtils;
 
 public class Common {
+    private static final String TAG = Common.class.getName();
     public static void clearErrorsWhenChanged(TextInputLayout layout) {
         layout.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
@@ -54,5 +62,32 @@ public class Common {
         }
 
         return valid;
+    }
+
+    public static void downloadImage(StorageReference storageRef, String url, Consumer<File> onSuccess,
+                              Consumer<Exception> onFailure) {
+        StorageReference imgRef = storageRef.child(url);
+        String suffix = FilenameUtils.getExtension(url);
+        File localFile = null;
+        try {
+            localFile = File.createTempFile("images", suffix);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        File finalLocalFile = localFile;
+        imgRef.getFile(localFile).addOnSuccessListener(taskSnapshot -> {
+            // Local temp file has been created
+            Log.d(TAG, "Download img succeed, file:" + finalLocalFile.getAbsolutePath());
+            if (onSuccess != null) {
+                onSuccess.accept(finalLocalFile);
+            }
+        }).addOnFailureListener(exception -> {
+            // Handle any errors
+            Log.w(TAG, "Download img failed", exception);
+            if (onFailure != null) {
+                onFailure.accept(exception);
+            }
+        });
     }
 }
