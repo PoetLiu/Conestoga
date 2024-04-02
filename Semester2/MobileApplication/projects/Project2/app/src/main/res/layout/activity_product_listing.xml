@@ -28,7 +28,7 @@
                 app:menu="@menu/top_app_bar"
                 app:navigationIcon="@drawable/back_arrow_24p"
                 app:title="Products"
-                app:titleCentered="false" />
+                app:titleCentered="true" />
 
         </com.google.android.material.appbar.AppBarLayout>
 

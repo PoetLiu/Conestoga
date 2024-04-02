@@ -66,6 +66,7 @@ public class CartFull {
 
     public void setItems(List<CartItemFull> items) {
         this.items = items;
+        updatePrice();
     }
 
     @Relation(

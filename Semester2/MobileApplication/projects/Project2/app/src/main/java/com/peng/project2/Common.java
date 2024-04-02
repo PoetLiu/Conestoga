@@ -1,12 +1,16 @@
 package com.peng.project2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.util.Patterns;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.common.base.Strings;
 import com.google.firebase.auth.FirebaseUser;
@@ -112,7 +116,7 @@ public class Common {
         Cart cart = db.cartDao().selectOne(user.getUid());
         CartItem item = db.cartItemDao().selectOne(cart.getId(), product.getId());
         if (item == null) {
-            item = new CartItem(cart.getId(), product.getId(), (short) 1);
+            item = new CartItem(cart.getId(), product.getId(), (short) 0);
         }
         item.setQuantity((short) (item.getQuantity() + quantity));
         db.cartItemDao().insetOrUpdate(item);
@@ -121,5 +125,18 @@ public class Common {
                 "Add to cart successfully!",
                 Toast.LENGTH_SHORT
         ).show();
+    }
+
+    public static void initToolBar(AppCompatActivity activity) {
+        MaterialToolbar toolbar = activity.findViewById(R.id.topAppBar);
+        toolbar.setNavigationOnClickListener(v -> activity.getOnBackPressedDispatcher().onBackPressed());
+        toolbar.setOnMenuItemClickListener(menuItem -> {
+            if (menuItem.getItemId() == R.id.shopping_cart) {
+                Intent myIntent = new Intent(activity, CartActivity.class);
+                activity.startActivity(myIntent);
+                return true;
+            }
+            return false;
+        });
     }
 }

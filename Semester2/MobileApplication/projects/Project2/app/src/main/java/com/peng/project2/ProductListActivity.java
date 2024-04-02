@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -37,5 +38,7 @@ public class ProductListActivity extends AppCompatActivity {
         List<Product> productList = db.productDao().getAll();
         mAdapter = new ProductsAdapter(productList, storageRef, db, mAuth);
         recyclerView.setAdapter(mAdapter);
+
+        Common.initToolBar(this);
     }
 }

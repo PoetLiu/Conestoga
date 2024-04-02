@@ -57,6 +57,7 @@ public class CartActivity extends AppCompatActivity {
         });
 
         recyclerView.setAdapter(mAdapter);
+        Common.initToolBar(this);
     }
 
     private void updateSummary(CartFull cart) {

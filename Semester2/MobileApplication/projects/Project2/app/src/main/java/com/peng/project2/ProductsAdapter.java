@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -82,7 +83,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
         private final TextView productSubtitleText;
         private final TextView productColorText;
         private final TextView productPrice;
-        private final ImageView addToCart;
+        private final Button addToCart;
         public MyViewHolder(LayoutInflater inflater, ViewGroup parent) {
             super((inflater.inflate(R.layout.activity_product_listing_item, parent, false)));
 
@@ -91,7 +92,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
             productSubtitleText = itemView.findViewById(R.id.productSubtitleTextView);
             productColorText = itemView.findViewById(R.id.productColorsTextView);
             productPrice = itemView.findViewById(R.id.productPriceTextView);
-            addToCart = itemView.findViewById(R.id.addToCartImageView);
+            addToCart = itemView.findViewById(R.id.addToCartButton);
         }
     }
 }

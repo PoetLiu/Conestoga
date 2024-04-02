@@ -98,5 +98,7 @@ public class ProductDetailActivity extends AppCompatActivity {
             Intent myIntent = new Intent(getApplicationContext(), CartActivity.class);
             startActivity(myIntent);
         });
+
+        Common.initToolBar(this);
     }
 }

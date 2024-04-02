@@ -8,8 +8,3 @@ INSERT INTO Product(title, subTitle, colorInfo, details, brand, price, stock, im
     ("Air Jordan 1 Retro Low OG", "Men's Shoes", "1 Colour", "It's your familiar favourite, now infused with unique craft. The deconstructed upper gives you added comfort and a textured look. Underneath, classic Air cushioning adds quality to each and every step.", "Nike", "180", "10", "air-jordan-1-retro-low-og-shoes-ZgjTGq.png"),
     ("Nike Air Presto", "Men's Shoes", "3 Colours", "With a sleek design that's more comfortable than your favourite T-shirt, the Nike Air Presto is made to feel good and look fast. Its stretchy sleeve creates a cosy, sock-like fit while the super-soft foam adds spring to your step. Put them on and you'll never want to take them off.", "Nike", "126.99", "10", "air-presto-shoes-2SgNp1.png"),
     ("Air Jordan Mule", "Golf Shoes", "2 Colours", "Slide into pre- and post-game paradise, whether you're sailing to the 19th hole after a career low or ramping up for the round ahead in the all-new Jordan 1 G Mule. It's easily accessible, eye-poppingly eccentric and complete with timeless Jordan ethos and comfort.", "Nike", "175", "10", "air-jordan-mule-golf-shoes-DfhRjb.png");
-
-
-INSERT INTO Cart(userUid)
-    values
-    ("g1iweqtv49fGNT5oWUK11gH1Ik32");

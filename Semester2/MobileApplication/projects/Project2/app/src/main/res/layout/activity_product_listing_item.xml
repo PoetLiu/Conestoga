@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
-            android:paddingBottom="5dp">
+            android:paddingBottom="10dp">
 
             <ImageView
                 android:id="@+id/productImageView"
@@ -42,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:text="Nike Air Force 1 07 SE"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/productImageView" />
@@ -54,6 +55,7 @@
                 android:layout_marginTop="2dp"
                 android:alpha="0.5"
                 android:text="Men's Shoes"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/productTitleTextView" />
 
@@ -65,6 +67,7 @@
                 android:layout_marginTop="2dp"
                 android:alpha="0.5"
                 android:text="1 Colour"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/productSubtitleTextView" />
 
@@ -75,18 +78,26 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:text="$150"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/productColorsTextView" />
 
-            <ImageView
-                android:id="@+id/addToCartImageView"
-                android:layout_width="33dp"
-                android:layout_height="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <Button
+                android:id="@+id/addToCartButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="#135a62"
+                android:paddingStart="50dp"
+                android:paddingEnd="50dp"
+                android:text="Add To Cart"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/shopping_cart_24p" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productPriceTextView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

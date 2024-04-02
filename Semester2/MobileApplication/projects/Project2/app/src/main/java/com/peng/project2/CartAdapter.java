@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.StorageReference;
 import com.peng.project2.dao.AppDatabase;
 import com.peng.project2.dao.CartFull;
-import com.peng.project2.entity.Cart;
+import com.peng.project2.dao.CartItemFull;
 import com.peng.project2.entity.CartItem;
 import com.peng.project2.entity.Product;
 
@@ -48,7 +48,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Product product = cart.getItems().get(position).getProduct();
+        CartItemFull itemFull = cart.getItems().get(position);
+        Product product = itemFull.getProduct();
+        CartItem item = itemFull.getEntity();
+
         downloadImage(storageRef, product.getImageUrl(),
                 (file) -> {
                     product.setTmpImageFile(file);
@@ -67,24 +70,26 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
             int quantity = Integer.parseInt(holder.quantityTextView.getText().toString());
             if (quantity > 1) {
                 holder.quantityTextView.setText(Integer.toString(quantity-1));
+                changeQuantity(position, -1);
             } else {
                 Toast.makeText(view.getContext(), "The minimal quantity is 1",
                         Toast.LENGTH_SHORT).show();
             }
-            changeQuantity(position, -1);
         });
+
+        holder.quantityTextView.setText(item.getQuantity().toString());
 
         holder.plusButton.setOnClickListener(v -> {
             int quantity = Integer.parseInt(holder.quantityTextView.getText().toString());
             if (quantity < product.getStock()) {
                 holder.quantityTextView.setText(Integer.toString(quantity+1));
+                changeQuantity(position, 1);
             } else {
                 Toast.makeText(view.getContext(),
                         "The maximum quantity is " + product.getStock(),
                         Toast.LENGTH_SHORT
                 ).show();
             }
-            changeQuantity(position, 1);
         });
 
         holder.removeButton.setOnClickListener(v -> {
