@@ -12,8 +12,10 @@ import com.peng.project2.entity.Cart;
 public interface CartDao {
     @Transaction
     @Query("SELECT * FROM Cart WHERE userUid = :userUid")
-    CartWithItems getCartByUserUid(String userUid);
+    CartFull getCartByUserUid(String userUid);
 
+    @Query("SELECT * FROM Cart WHERE userUid = :userUid")
+    Cart selectOne(String userUid);
     @Insert
     void insert(Cart cart);
 

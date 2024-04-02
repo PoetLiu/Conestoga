@@ -1,5 +1,6 @@
 package com.peng.project2;
 
+import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -11,17 +12,15 @@ import com.google.common.base.Strings;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.StorageReference;
 import com.peng.project2.dao.AppDatabase;
-import com.peng.project2.dao.CartWithItems;
 import com.peng.project2.entity.Cart;
 import com.peng.project2.entity.CartItem;
 import com.peng.project2.entity.Product;
 
+import org.apache.commons.io.FilenameUtils;
+
 import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 import java.util.function.Consumer;
-import org.apache.commons.io.FilenameUtils;
-import android.content.Context;
 
 public class Common {
     private static final String TAG = Common.class.getName();
@@ -110,20 +109,12 @@ public class Common {
             return;
         }
 
-        CartWithItems cartWithItems = db.cartDao().getCartByUserUid(user.getUid());
-        Cart cart = cartWithItems.getCart();
-
-        CartItem item = cartWithItems.getItems().stream().filter(
-                        i -> Objects.equals(i.getProductId(), product.getId())
-                ).findFirst()
-                .orElse(new CartItem(cart.getId(), product.getId(), (short)0));
-
+        Cart cart = db.cartDao().selectOne(user.getUid());
+        CartItem item = db.cartItemDao().selectOne(cart.getId(), product.getId());
+        if (item == null) {
+            item = new CartItem(cart.getId(), product.getId(), (short) 1);
+        }
         item.setQuantity((short) (item.getQuantity() + quantity));
-
-        cart.setSubTotal(cart.getSubTotal() + product.getPrice() * quantity);
-        cart.updatePrice();
-        db.cartDao().update(cart);
-
         db.cartItemDao().insetOrUpdate(item);
 
         Toast.makeText(context,

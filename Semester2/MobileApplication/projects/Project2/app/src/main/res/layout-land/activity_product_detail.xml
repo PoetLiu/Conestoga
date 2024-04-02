@@ -219,7 +219,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/quantityTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
@@ -235,7 +235,7 @@
                 android:layout_marginTop="5dp"
                 android:contentDescription="plus the quantity"
                 app:icon="@drawable/plus_32p"
-                app:layout_constraintStart_toEndOf="@+id/textView9"
+                app:layout_constraintStart_toEndOf="@+id/quantityTextView"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <Button

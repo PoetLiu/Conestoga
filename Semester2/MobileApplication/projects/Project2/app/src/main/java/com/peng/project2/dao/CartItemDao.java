@@ -1,6 +1,7 @@
 package com.peng.project2.dao;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -13,5 +14,8 @@ public interface CartItemDao {
     void insetOrUpdate(CartItem item);
 
     @Query("SELECT * FROM CartItem WHERE cartId = :cartId AND productId = :productId")
-    CartItem select(Long cartId, Long productId);
+    CartItem selectOne(Long cartId, Long productId);
+
+    @Delete
+    void delete(CartItem item);
 }

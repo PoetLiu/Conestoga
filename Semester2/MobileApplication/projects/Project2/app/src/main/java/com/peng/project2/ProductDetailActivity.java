@@ -26,6 +26,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     private TextView quantityTextView;
     private Button minusButton;
     private Button addToCart;
+    private Button goToCart;
     private TextView productDetailTextView;
     private AppDatabase db;
     private FirebaseAuth mAuth;
@@ -49,6 +50,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         minusButton = findViewById(R.id.minusButton);
         addToCart = findViewById(R.id.addToCartButton);
         productDetailTextView = findViewById(R.id.productDetailTextView);
+        goToCart = findViewById(R.id.goToCartButton);
 
         Intent intent = getIntent();
         long productId = intent.getLongExtra("productId", -1L);
@@ -90,6 +92,11 @@ public class ProductDetailActivity extends AppCompatActivity {
             Common.addToCart(ProductDetailActivity.this, db, mAuth.getCurrentUser(), entity,
                     quantity
             );
+        });
+
+        goToCart.setOnClickListener(v -> {
+            Intent myIntent = new Intent(getApplicationContext(), CartActivity.class);
+            startActivity(myIntent);
         });
     }
 }
