@@ -114,7 +114,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
         <Button
-            android:id="@+id/continueShoppingButton"
+            android:id="@+id/goShoppingButton"
             android:layout_width="325dp"
             android:layout_height="54dp"
             android:layout_marginTop="20dp"
