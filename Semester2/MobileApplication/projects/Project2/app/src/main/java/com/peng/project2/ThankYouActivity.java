@@ -19,5 +19,7 @@ public class ThankYouActivity extends AppCompatActivity {
             Intent myIntent = new Intent(this, ProductListActivity.class);
             startActivity(myIntent);
         });
+
+        Common.initToolBar(this);
     }
 }

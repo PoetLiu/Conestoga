@@ -53,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
         clearErrorsWhenChanged(confirmPasswordLayout);
         agreePolicyCk = findViewById(R.id.agreeCheckBox);
         agreePolicyCk.setOnClickListener(v -> agreePolicyCk.setError(null));
-        registerBtn = findViewById(R.id.registerBtn);
+        registerBtn = findViewById(R.id.goRegisterBtn);
 
         registerBtn.setOnClickListener(v -> {
             boolean valid = validateForm();

@@ -92,7 +92,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
             productSubtitleText = itemView.findViewById(R.id.productSubtitleTextView);
             productColorText = itemView.findViewById(R.id.productColorsTextView);
             productPrice = itemView.findViewById(R.id.productPriceTextView);
-            addToCart = itemView.findViewById(R.id.addToCartButton);
+            addToCart = itemView.findViewById(R.id.addToCartBtn);
         }
     }
 }

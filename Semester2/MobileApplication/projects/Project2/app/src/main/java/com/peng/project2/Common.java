@@ -201,6 +201,10 @@ public class Common {
                 Intent myIntent = new Intent(activity, CartActivity.class);
                 activity.startActivity(myIntent);
                 return true;
+            } else if (menuItem.getItemId() == R.id.user) {
+                Intent myIntent = new Intent(activity, UserActivity.class);
+                activity.startActivity(myIntent);
+                return true;
             }
             return false;
         });

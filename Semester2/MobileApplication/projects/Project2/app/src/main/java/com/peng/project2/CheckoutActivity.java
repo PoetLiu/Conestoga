@@ -28,29 +28,9 @@ public class CheckoutActivity extends AppCompatActivity {
         db = AppDatabase.getInstance(getApplicationContext());
         mAuth = FirebaseAuth.getInstance();
 
+        // disable touching to select tabs, user can only navigate next after that form is validated.
         tabLayout = findViewById(R.id.tabLayout);
         tabLayout.getTouchables().forEach(view -> view.setEnabled(false));
-//        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//            @Override
-//            public void onTabSelected(TabLayout.Tab tab) {
-//                Log.i(TAG, String.format("Tab:%s is selected", tab.getText().toString()));
-//                if (tab.getPosition() == 0) {
-//                    showShippingFrag();
-//                } else {
-//                    showPaymentFrag();
-//                }
-//            }
-//
-//            @Override
-//            public void onTabUnselected(TabLayout.Tab tab) {
-//
-//            }
-//
-//            @Override
-//            public void onTabReselected(TabLayout.Tab tab) {
-//
-//            }
-//        });
 
         getSupportFragmentManager().setFragmentResultListener(
                 CheckoutShippingFragment.REQUEST_KEY_NEXT,

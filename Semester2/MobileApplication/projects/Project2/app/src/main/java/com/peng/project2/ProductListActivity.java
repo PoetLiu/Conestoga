@@ -1,8 +1,10 @@
 package com.peng.project2;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,7 +33,7 @@ public class ProductListActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         recyclerView = findViewById(R.id.productsRV);
-        layoutManager = new LinearLayoutManager(this);
+        layoutManager = getLayoutManager();
         recyclerView.setLayoutManager(layoutManager);
 
         storageRef = FirebaseStorage.getInstance().getReference().child("images");
@@ -40,5 +42,14 @@ public class ProductListActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
 
         Common.initToolBar(this);
+    }
+
+    private RecyclerView.LayoutManager getLayoutManager() {
+        int orientation = getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            return new GridLayoutManager(this, 2);
+        } else {
+            return new LinearLayoutManager(this);
+        }
     }
 }

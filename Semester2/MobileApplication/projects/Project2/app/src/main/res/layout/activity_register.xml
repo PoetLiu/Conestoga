@@ -121,7 +121,7 @@
             android:layout_marginTop="20dp">
 
             <Button
-                android:id="@+id/registerBtn"
+                android:id="@+id/goRegisterBtn"
                 android:layout_width="325dp"
                 android:layout_height="54dp"
                 android:backgroundTint="#135a62"

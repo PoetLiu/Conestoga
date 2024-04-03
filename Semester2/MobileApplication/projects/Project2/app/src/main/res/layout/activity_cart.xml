@@ -63,7 +63,7 @@
         app:layout_constraintGuide_begin="20dp" />
 
     <ScrollView
-        android:id="@+id/cartScrollView"
+        android:id="@+id/mainLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="20dp"

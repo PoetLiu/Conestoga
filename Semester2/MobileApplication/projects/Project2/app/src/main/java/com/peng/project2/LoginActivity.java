@@ -34,10 +34,10 @@ public class LoginActivity extends AppCompatActivity {
         passwordLayout = findViewById(R.id.passwordLayout);
         clearErrorsWhenChanged(passwordLayout);
 
-        loginBtn = findViewById(R.id.loginBtn);
+        loginBtn = findViewById(R.id.addToCartBtn);
         loginBtn.setOnClickListener(v -> doLogin());
 
-        goRegisterBtn = findViewById((R.id.goBackBtn));
+        goRegisterBtn = findViewById((R.id.goRegisterBtn));
         goRegisterBtn.setOnClickListener(v -> {
             Intent myIntent = new Intent(this, RegisterActivity.class);
             startActivity(myIntent);

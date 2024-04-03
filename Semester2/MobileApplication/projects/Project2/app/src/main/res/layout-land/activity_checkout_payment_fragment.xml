@@ -13,57 +13,45 @@
         android:layout_marginTop="2dp"
         android:elevation="5dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/nameOnCardLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Name On Card" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cardNumberLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Card Number" />
-        </com.google.android.material.textfield.TextInputLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="242dp"
+                android:id="@+id/cardNumberLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:layout_weight="2"
-                app:startIconContentDescription="hello">
+                android:layout_weight="3">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Expiry Date"
-                    android:visibility="visible" />
+                    android:hint="Card Number" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/nameOnCardLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="2">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name On Card" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cvvLayout"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
@@ -73,23 +61,71 @@
                     android:hint="CVV" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
         </LinearLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/orderNowBtn"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/notesLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_weight="4">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Notes (optional)" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/expireDateLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#D5917F"
-                android:text="Order Now"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_weight="1"
+                app:startIconContentDescription="hello">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Expiry Date"
+                    android:visibility="visible" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <Button
+            android:id="@+id/goBackBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="@color/white"
+            android:text="Back"
+            android:textColor="@color/black"
+            app:strokeColor="@android:color/darker_gray"
+            app:strokeWidth="2sp" />
+
+        <Button
+            android:id="@+id/orderNowBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D5917F"
+            android:text="Order Now" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

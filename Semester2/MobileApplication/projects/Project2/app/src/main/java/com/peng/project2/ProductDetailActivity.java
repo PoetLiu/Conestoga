@@ -48,7 +48,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         plusButton = findViewById(R.id.plusButton);
         quantityTextView = findViewById(R.id.quantityTextView);
         minusButton = findViewById(R.id.minusButton);
-        addToCart = findViewById(R.id.addToCartButton);
+        addToCart = findViewById(R.id.addToCartBtn);
         productDetailTextView = findViewById(R.id.productDetailTextView);
         goToCart = findViewById(R.id.goToCartButton);
 

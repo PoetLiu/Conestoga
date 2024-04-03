@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,7 +29,7 @@ public class CartActivity extends AppCompatActivity {
     private TextView taxTextView;
     private TextView totalTextView;
     private Button goCheckoutBtn;
-    private ScrollView scrollView;
+    private View mainView;
     private LinearLayout emptyLinearLayout;
     private Button goShoppingBtn;
 
@@ -53,7 +52,7 @@ public class CartActivity extends AppCompatActivity {
         totalTextView = findViewById(R.id.totalTextView);
 
         storageRef = FirebaseStorage.getInstance().getReference().child("images");
-        scrollView = findViewById(R.id.cartScrollView);
+        mainView = findViewById(R.id.mainLayout);
 
         CartFull cart = db.cartDao().getCartByUserUid(mAuth.getCurrentUser().getUid());
         updateSummary(cart);
@@ -87,11 +86,11 @@ public class CartActivity extends AppCompatActivity {
 
     private void updateView(boolean isEmpty) {
         if (isEmpty) {
-            scrollView.setVisibility(View.GONE);
+            mainView.setVisibility(View.GONE);
             emptyLinearLayout.setVisibility(View.VISIBLE);
         } else {
             emptyLinearLayout.setVisibility(View.GONE);
-            scrollView.setVisibility(View.VISIBLE);
+            mainView.setVisibility(View.VISIBLE);
         }
     }
 

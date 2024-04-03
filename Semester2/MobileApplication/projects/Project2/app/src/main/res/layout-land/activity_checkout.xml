@@ -63,6 +63,7 @@
         app:layout_constraintGuide_begin="20dp" />
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -83,6 +84,27 @@
             android:text="Payment" />
 
     </com.google.android.material.tabs.TabLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerView"
+            android:name="com.peng.project2.CheckoutShippingFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:paddingTop="20dp"
+            tools:layout="@layout/activity_checkout_shipping_fragment" />
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

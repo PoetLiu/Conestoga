@@ -202,7 +202,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <Button
-                android:id="@+id/addToCartButton"
+                android:id="@+id/addToCartBtn"
                 android:layout_width="325dp"
                 android:layout_height="54dp"
                 android:layout_marginTop="10dp"
@@ -222,7 +222,7 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/addToCartButton"
+                app:layout_constraintTop_toBottomOf="@id/addToCartBtn"
                 app:strokeColor="@android:color/darker_gray"
                 app:strokeWidth="2sp" />
 

@@ -63,7 +63,7 @@
         app:layout_constraintGuide_begin="395dp" />
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
@@ -79,8 +79,15 @@
             android:id="@+id/cartRV"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
             android:layout_weight="1" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider1"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -202,8 +209,10 @@
 
                 <Button
                     android:id="@+id/goToCheckoutButton"
-                    android:layout_width="325dp"
-                    android:layout_height="54dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:backgroundTint="#135a62"
                     android:text="Go To Checkout"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -212,6 +221,42 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/emptyLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/coordinatorLayout">
+
+        <TextView
+            android:id="@+id/emptyTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your cart is empty."
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/goShoppingButton"
+            android:layout_width="325dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="#135a62"
+            android:text="Go Shopping"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView20" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
