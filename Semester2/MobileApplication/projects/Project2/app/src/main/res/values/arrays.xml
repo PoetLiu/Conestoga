@@ -1,0 +1,18 @@
+<resources>
+<array
+    name="Provinces">
+    <item>AB-Alberta</item>
+    <item>BC-British Columbia</item>
+    <item>MB-Manitoba</item>
+    <item>NB-New Brunswick</item>
+    <item>NL-Newfoundland and Labrador</item>
+    <item>NS-Nova Scotia</item>
+    <item>NT-Northwest Territories</item>
+    <item>NU-Nunavut</item>
+    <item>ON-Ontario</item>
+    <item>PE-Prince Edward Island</item>
+    <item>QC-Quebec</item>
+    <item>SK-Saskatchewan</item>
+    <item>YK-Yukon</item>
+</array>
+</resources>

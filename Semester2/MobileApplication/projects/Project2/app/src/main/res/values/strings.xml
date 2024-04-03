@@ -8,4 +8,12 @@
     <string name="content_description_favorite">Favorite</string>
     <string name="go_login">Already have an account? <u>Login now</u>.</string>
 
+    <string name="first_name">FirstName</string>
+    <string name="last_name">LastName</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="province">Province</string>
+    <string name="city">City</string>
+    <string name="post_code">PostCode</string>
 </resources>

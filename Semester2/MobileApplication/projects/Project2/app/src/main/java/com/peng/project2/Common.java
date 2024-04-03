@@ -25,6 +25,7 @@ import org.apache.commons.io.FilenameUtils;
 import java.io.File;
 import java.io.IOException;
 import java.util.function.Consumer;
+import java.util.regex.Pattern;
 
 public class Common {
     private static final String TAG = Common.class.getName();
@@ -45,35 +46,58 @@ public class Common {
         });
     }
 
-    public static boolean validEmail(TextInputLayout layout) {
-        boolean valid = true;
-        String email = layout.getEditText().getText().toString();
-        if (Strings.isNullOrEmpty(email)) {
-            layout.setError("email is required.");
-            valid = false;
+    public static boolean validField(TextInputLayout layout, String prefix, Pattern pattern,
+                                     String description) {
+        if (description == null) {
+            description = "";
         }
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            layout.setError("email is not valid.");
-            valid = false;
+
+        String name = layout.getEditText().getText().toString();
+        if (Strings.isNullOrEmpty(name)) {
+            layout.setError(prefix + " is required.");
+            return false;
         }
-        return valid;
+        if (pattern != null && !pattern.matcher(name).matches()) {
+            layout.setError(prefix + " is not valid. " + description);
+            return false;
+        }
+        return true;
     }
 
+
+    public static final Pattern NAME = Pattern.compile("^[a-zA-Z ,.'-]{2,128}$");
+    public static boolean validName(TextInputLayout layout, String prefix) {
+        return validField(layout, prefix, NAME, null);
+    }
+
+    public static boolean validPhone(TextInputLayout layout) {
+        return validField(layout, "Phone", Patterns.PHONE, null);
+    }
+
+    public static boolean validEmail(TextInputLayout layout) {
+        return validField(layout, "Email", Patterns.EMAIL_ADDRESS, null);
+    }
+
+    public static final Pattern PASSWORD = Pattern.compile("^[a-zA-Z0-9]{6,32}$");
     public static boolean validPassword(TextInputLayout layout) {
-        boolean valid = true;
-        String pwd = layout.getEditText().getText().toString();
+        return validField(layout, "Password", PASSWORD,
+                "It consists only alphanumeric characters and at least 6 long.");
+    }
 
-        if (Strings.isNullOrEmpty(pwd)) {
-            layout.setError("password is required.");
-            valid = false;
-        }
+    public static final Pattern ADDRESS = Pattern.compile("^[a-zA-Z0-9 -]{16,128}$");
+    public static boolean validAddress(TextInputLayout layout) {
+        return validField(layout, "Address", ADDRESS, null);
+    }
 
-        if (pwd.length() < 6) {
-            layout.setError("password is at least 6 characters.");
-            valid = false;
-        }
+    public static final Pattern CITY = Pattern.compile("^[a-zA-Z]{4,32}$");
+    public static boolean validCity(TextInputLayout layout) {
+        return validField(layout, "City", CITY,
+                "It consists only alpha characters and at least 4 long.");
+    }
 
-        return valid;
+    public static final Pattern POSTCODE = Pattern.compile("^[A-Za-z]\\d[A-Za-z][ -]?\\d[A-Za-z]\\d$");
+    public static boolean validPostcode(TextInputLayout layout) {
+        return validField(layout, "PostCode", POSTCODE, null);
     }
 
     public static void downloadImage(StorageReference storageRef, String url, Consumer<File> onSuccess,

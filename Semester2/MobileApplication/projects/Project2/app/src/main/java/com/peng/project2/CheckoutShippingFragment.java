@@ -10,9 +10,11 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class CheckoutShippingFragment extends Fragment {
+    public static final String REQUEST_KEY = "next";
     private TextInputLayout firstNameLayout;
     private TextInputLayout lastNameLayout;
     private TextInputLayout emailLayout;
@@ -51,10 +53,53 @@ public class CheckoutShippingFragment extends Fragment {
             if (!validateForm()) {
                 return;
             }
-             
+            getParentFragmentManager().setFragmentResult(REQUEST_KEY, buildBundle());
         });
 
+        initViews(getArguments());
         return v;
+    }
+
+    private static String getText(TextInputLayout layout) {
+        return layout.getEditText().getText().toString();
+    }
+    private static void setText(TextInputLayout layout, String text) {
+        layout.getEditText().setText(text);
+    }
+    private String getResStr(int id) {
+       return getResources().getString(id);
+    }
+
+    private Bundle buildBundle() {
+        Bundle bundle = new Bundle();
+        bundle.putString(getResStr(R.string.first_name), getText(firstNameLayout));
+        bundle.putString(getResStr(R.string.last_name), getText(lastNameLayout));
+        bundle.putString(getResStr(R.string.email), getText(emailLayout));
+        bundle.putString(getResStr(R.string.phone), getText(phoneLayout));
+        bundle.putString(getResStr(R.string.address), getText(addressLayout));
+        bundle.putString(getResStr(R.string.province), getText(provinceLayout));
+        bundle.putString(getResStr(R.string.city), getText(cityLayout));
+        bundle.putString(getResStr(R.string.post_code), getText(postCodeLayout));
+        return bundle;
+    }
+
+    private void initViews(Bundle bundle) {
+        if (bundle == null || bundle.size() == 0) {
+            return;
+        }
+
+        setText(firstNameLayout, bundle.getString(getResStr(R.string.first_name)));
+        setText(lastNameLayout, bundle.getString(getResStr(R.string.last_name)));
+        setText(emailLayout, bundle.getString(getResStr(R.string.email)));
+        setText(phoneLayout, bundle.getString(getResStr(R.string.phone)));
+        setText(addressLayout, bundle.getString(getResStr(R.string.address)));
+
+        setText(provinceLayout, bundle.getString(getResStr(R.string.province)));
+        ((MaterialAutoCompleteTextView) provinceLayout.getEditText())
+               .setSimpleItems(R.array.Provinces);
+
+        setText(cityLayout, bundle.getString(getResStr(R.string.city)));
+        setText(postCodeLayout, bundle.getString(getResStr(R.string.post_code)));
     }
 
     private boolean validateForm() {
@@ -78,7 +123,7 @@ public class CheckoutShippingFragment extends Fragment {
         if (!Common.validCity(cityLayout)) {
             valid = false;
         }
-        if (!Common.validCity(postCodeLayout)) {
+        if (!Common.validPostcode(postCodeLayout)) {
             valid = false;
         }
         return valid;

@@ -29,7 +29,7 @@ public class CartActivity extends AppCompatActivity {
     private TextView deliveryTextView;
     private TextView taxTextView;
     private TextView totalTextView;
-
+    private Button goCheckoutBtn;
     private ScrollView scrollView;
     private LinearLayout emptyLinearLayout;
     private Button goShoppingBtn;
@@ -69,6 +69,11 @@ public class CartActivity extends AppCompatActivity {
             }
         });
         recyclerView.setAdapter(mAdapter);
+        goCheckoutBtn = findViewById(R.id.goToCheckoutButton);
+        goCheckoutBtn.setOnClickListener(v -> {
+            Intent myIntent = new Intent(CartActivity.this, CheckoutActivity.class);
+            startActivity(myIntent);
+        });
 
         Common.initToolBar(this);
     }

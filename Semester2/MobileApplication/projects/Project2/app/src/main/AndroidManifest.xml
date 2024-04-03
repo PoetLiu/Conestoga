@@ -16,10 +16,10 @@
             android:name=".ThankYouActivity"
             android:exported="false" />
         <activity
-            android:name=".CheckoutPaymentFragmentActivity"
+            android:name=".CheckoutPaymentFragment"
             android:exported="false" />
         <activity
-            android:name=".CheckoutPersonalInfoFragmentActivity"
+            android:name=".CheckoutShippingFragment"
             android:exported="false" />
         <activity
             android:name=".CheckoutActivity"

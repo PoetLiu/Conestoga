@@ -63,6 +63,7 @@
         app:layout_constraintGuide_begin="20dp" />
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -73,16 +74,35 @@
         app:tabMode="fixed">
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/personalTabItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Personal" />
+            android:text="Shipping" />
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/paymentTabItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Payment" />
 
     </com.google.android.material.tabs.TabLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.peng.project2.CheckoutShippingFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:paddingTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout="@layout/activity_checkout_shipping_fragment" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
