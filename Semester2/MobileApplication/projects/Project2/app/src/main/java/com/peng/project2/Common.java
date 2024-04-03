@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.common.base.Strings;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.StorageReference;
 import com.peng.project2.dao.AppDatabase;
@@ -222,5 +223,13 @@ public class Common {
     }
     public static String getResStr(Fragment frag, int id) {
         return frag.getResources().getString(id);
+    }
+
+    public static void checkLogin(FirebaseAuth auth, Context context) {
+        FirebaseUser currentUser = auth.getCurrentUser();
+        if (currentUser == null) {
+            Intent myIntent = new Intent(context, LoginActivity.class);
+            context.startActivity(myIntent);
+        }
     }
 }

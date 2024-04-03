@@ -48,4 +48,10 @@ public class UserActivity extends AppCompatActivity {
 
         Common.initToolBar(this);
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Common.checkLogin(mAuth, this);
+    }
 }

@@ -101,4 +101,10 @@ public class ProductDetailActivity extends AppCompatActivity {
 
         Common.initToolBar(this);
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Common.checkLogin(mAuth, this);
+    }
 }

@@ -44,6 +44,12 @@ public class ProductListActivity extends AppCompatActivity {
         Common.initToolBar(this);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        Common.checkLogin(mAuth, this);
+    }
+
     private RecyclerView.LayoutManager getLayoutManager() {
         int orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {

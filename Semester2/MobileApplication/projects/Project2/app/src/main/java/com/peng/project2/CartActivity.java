@@ -77,6 +77,12 @@ public class CartActivity extends AppCompatActivity {
         Common.initToolBar(this);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        Common.checkLogin(mAuth, this);
+    }
+
     private void updateSummary(CartFull cart) {
         subTotalTextView.setText(cart.getSubTotal().toString());
         taxTextView.setText(cart.getTaxes().toString());

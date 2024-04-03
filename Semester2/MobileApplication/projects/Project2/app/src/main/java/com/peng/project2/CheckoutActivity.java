@@ -23,8 +23,6 @@ public class CheckoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
-        Common.initToolBar(this);
-
         db = AppDatabase.getInstance(getApplicationContext());
         mAuth = FirebaseAuth.getInstance();
 
@@ -55,6 +53,14 @@ public class CheckoutActivity extends AppCompatActivity {
                     data.putAll(result);
                     placeOrder();
                 });
+
+        Common.initToolBar(this);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Common.checkLogin(mAuth, this);
     }
 
     private void placeOrder() {
