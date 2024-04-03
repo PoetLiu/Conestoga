@@ -18,4 +18,7 @@ public interface CartItemDao {
 
     @Delete
     void delete(CartItem item);
+
+    @Query("DELETE FROM CartItem WHERE cartId = :cartId")
+    void deleteByCartId(Long cartId);
 }

@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = findViewById(R.id.loginBtn);
         loginBtn.setOnClickListener(v -> doLogin());
 
-        goRegisterBtn = findViewById((R.id.goRegisterBtn));
+        goRegisterBtn = findViewById((R.id.goBackBtn));
         goRegisterBtn.setOnClickListener(v -> {
             Intent myIntent = new Intent(this, RegisterActivity.class);
             startActivity(myIntent);

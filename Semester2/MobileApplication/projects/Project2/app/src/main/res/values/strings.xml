@@ -16,4 +16,10 @@
     <string name="province">Province</string>
     <string name="city">City</string>
     <string name="post_code">PostCode</string>
+
+    <string name="name_on_card">NameOnCard</string>
+    <string name="card_number">CardNumber</string>
+    <string name="expire_date">ExpireDate</string>
+    <string name="cvv">CVV</string>
+    <string name="notes">Notes</string>
 </resources>

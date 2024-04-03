@@ -31,7 +31,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/CardNumberLayout"
+            android:id="@+id/cardNumberLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
@@ -81,7 +81,7 @@
             android:layout_marginTop="20dp">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/orderNowBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#D5917F"
