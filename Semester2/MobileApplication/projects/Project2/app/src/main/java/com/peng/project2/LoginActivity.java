@@ -7,10 +7,12 @@ import static com.peng.project2.Common.validPassword;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputLayout passwordLayout;
     private Button loginBtn;
     private Button goRegisterBtn;
+    private ConstraintLayout loadingIndicator;
     private FirebaseAuth mAuth;
 
     @Override
@@ -37,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = findViewById(R.id.addToCartBtn);
         loginBtn.setOnClickListener(v -> doLogin());
 
+        loadingIndicator = findViewById(R.id.loadingLayout);
         goRegisterBtn = findViewById((R.id.goRegisterBtn));
         goRegisterBtn.setOnClickListener(v -> {
             Intent myIntent = new Intent(this, RegisterActivity.class);
@@ -72,10 +76,12 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        loadingIndicator.setVisibility(View.VISIBLE);
         String email = emailLayout.getEditText().getText().toString();
         String pwd = passwordLayout.getEditText().getText().toString();
         mAuth.signInWithEmailAndPassword(email, pwd)
                 .addOnCompleteListener(this, task -> {
+                    loadingIndicator.setVisibility(View.GONE);
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithEmail:success");

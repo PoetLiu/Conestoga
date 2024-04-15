@@ -73,15 +73,26 @@
                 app:layout_constraintTop_toBottomOf="@+id/productSubtitleTextView" />
 
             <TextView
-                android:id="@+id/productPriceTextView"
+                android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
-                android:text="$150"
+                android:text="$"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productColorsTextView" />
+
+            <TextView
+                android:id="@+id/productPriceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="150"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/textView17"
                 app:layout_constraintTop_toBottomOf="@+id/productColorsTextView" />
 
             <Button

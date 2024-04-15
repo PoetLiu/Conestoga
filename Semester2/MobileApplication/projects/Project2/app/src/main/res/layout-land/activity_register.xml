@@ -35,6 +35,42 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="395dp" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loadingLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#f2f6fa"
+        android:elevation="10dp"
+        android:paddingLeft="60dp"
+        android:paddingTop="40dp"
+        android:paddingRight="60dp"
+        android:paddingBottom="40dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/loading" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <LinearLayout
         android:id="@+id/loginFormLayout"
         android:layout_width="0dp"

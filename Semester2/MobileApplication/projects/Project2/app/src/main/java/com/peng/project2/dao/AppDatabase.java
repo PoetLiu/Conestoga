@@ -17,7 +17,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract CartItemDao cartItemDao();
     public abstract ProductDao productDao();
 
-    public static AppDatabase getInstance(Context context) {
+    public synchronized static AppDatabase getInstance(Context context) {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(
                     context,
