@@ -79,13 +79,23 @@
                 app:layout_constraintTop_toBottomOf="@+id/productSubtitleTextView" />
 
             <TextView
-                android:id="@+id/productPriceTextView"
+                android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="$150"
+                android:text="$"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/productPriceTextView"
                 app:layout_constraintStart_toEndOf="@+id/productImageView"
+                app:layout_constraintTop_toBottomOf="@+id/productColorsTextView" />
+
+            <TextView
+                android:id="@+id/productPriceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="150"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/textView24"
                 app:layout_constraintTop_toBottomOf="@+id/productColorsTextView" />
 
             <LinearLayout

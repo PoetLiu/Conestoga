@@ -118,10 +118,19 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/subtotalTextView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
                     android:id="@+id/subtotalTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="$100.0"
+                    android:text="100.0"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -143,10 +152,19 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/deliveryTextView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
                     android:id="@+id/deliveryTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="$10.0"
+                    android:text="10.0"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -167,10 +185,19 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/taxTextView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
                     android:id="@+id/taxTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="$13.0"
+                    android:text="13.0"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -192,10 +219,20 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/totalTextView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
                     android:id="@+id/totalTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="$123.0"
+                    android:text="123.0"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
