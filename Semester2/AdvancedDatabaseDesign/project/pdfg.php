@@ -95,7 +95,16 @@ function drawOverview($pdf, $order) {
     $pdf->Cell(0, $lineHeight, $order["Email"]); 
     $pdf->Ln($lineHeight * 2);
 }
-function drawBody($pdf, $orderItems) {
+
+function format_dollar($amount) {
+    return number_format((float)$amount, 2, '.', ''); 
+}
+
+function format_percent($amount) {
+    return number_format((float)($amount * 100), 0, '.', '')."%";
+}
+
+function drawBody($pdf, $order, $orderItems) {
     $display_heading = array(
         0 => array(
             'title' => 'DESCRIPTION', 
@@ -123,6 +132,7 @@ function drawBody($pdf, $orderItems) {
 
     $pdf->SetTextColor(0, 0, 0);
 
+    $subtotal = 0.0;
     foreach ($orderItems as $row) {
         $pdf->SetFont('Arial', '', 10);
         $pdf->Ln();
@@ -131,10 +141,18 @@ function drawBody($pdf, $orderItems) {
             $pdf->Cell($display_heading[$i]['width'], 10, $column, 1);
             $i++;
         }
+        $subtotal += $row['Total'];
     }
-    $pdf->Ln();
+    $pdf->Ln(20);
 
     /* Prices */
+    $discount = intval($order["Discount"]) / 100;
+    $subtotalLessDiscount = $subtotal * (1 - $discount);
+    $taxRate = 0.13;
+    $totalTax = $subtotalLessDiscount * $taxRate;
+    $shipping = $subtotalLessDiscount * 0.05;
+    $total = $subtotalLessDiscount + $totalTax + $shipping;
+    
     // move to right
     $pdf->SetX(-60);
     $pdf->Cell(20, 8, "SUBTOTAL", "", 2, "", );
@@ -150,17 +168,17 @@ function drawBody($pdf, $orderItems) {
 
     $pdf->SetY($pdf->GetY() - 48);
     $pdf->SetX(-40);
-    $pdf->Cell(30, 8, "0.00", "B", 2, "R");
-    $pdf->Cell(30, 8, "0.00", "B", 2, "R");
-    $pdf->Cell(30, 8, "0.00", "B", 2, "R");
-    $pdf->Cell(30, 8, "0.00", "B", 2, "R");
-    $pdf->Cell(30, 8, "0.00", "B", 2, "R");
-    $pdf->Cell(30, 8, "0.00", "B", 2, "R");
+    $pdf->Cell(30, 8, format_dollar($subtotal), "B", 2, "R");
+    $pdf->Cell(30, 8, format_percent($discount), "B", 2, "R");
+    $pdf->Cell(30, 8, format_dollar($subtotalLessDiscount), "B", 2, "R");
+    $pdf->Cell(30, 8, format_percent($taxRate), "B", 2, "R");
+    $pdf->Cell(30, 8, format_dollar($totalTax), "B", 2, "R");
+    $pdf->Cell(30, 8, format_dollar($shipping), "B", 2, "R");
 
     $pdf->SetFont('Arial', 'B', 14);
     $pdf->SetX(-70);
     $pdf->Cell(30, 8, "Paid", "", 0, "R");
-    $pdf->Cell(30, 8, "$0.00", "B", 2, "R");
+    $pdf->Cell(30, 8, "$".format_dollar($total), "B", 2, "R");
 }
 
 
@@ -173,7 +191,7 @@ function genPdf($order, $orderItems) {
     $pdf->SetFont('Arial', '', 12);
 
     drawOverview($pdf, $order);
-    drawBody($pdf, $orderItems);
+    drawBody($pdf, $order, $orderItems);
 
     $pdf->Output();
 }
@@ -188,22 +206,24 @@ function getOrderId() {
 
 $orderId = getOrderId();
 $orderInfo = mysqli_query($conn, 
-    "SELECT o.OrderDate, o.OrderId, 
-	        c.Name, c.Address, c.City, c.Phone, c.Email,
-            d.Address as ShipToAddress
+    "SELECT o.orderDate as OrderDate, o.ordersId as OrderId, 
+        c.Name, c.Address, c.City, c.Contact as Phone, c.EmailId as Email,
+        d.Address as ShipToAddress,
+        cp.Discount
     FROM Orders o
-    INNER JOIN Customer c on c.CustomerID = o.CustomerID
-    INNER JOIN Delivery d on d.OrderID = o.OrderID
-    WHERE o.OrderID={$orderId};"
+    LEFT JOIN Customers c on c.customerId = o.customerId
+    LEFT JOIN Delivery d on d.ordersId = o.ordersId
+    LEFT JOIN Coupons cp on cp.idCoupons = o.idCoupons
+    WHERE o.ordersId={$orderId};"
     )
     or die("database error:" . mysqli_error($conn));
 
 $orderItems = mysqli_query($conn, 
     "SELECT CONCAT(p.Name, '-', p.Size, '-', p.Crust, '-', p.Toppings) as Name, 
-    oi.Quantity, p.Price, (oi.Quantity * p.Price) as Total
-    FROM OrderItems oi
-    INNER JOIN Pizzas p on p.PizzaID = oi.PizzaID
-    WHERE oi.OrderID = {$orderId};"
+    op.quantity as Quantity, p.Price, (op.quantity * p.Price) as Total
+    FROM Orders_has_Pizzas op
+    INNER JOIN Pizzas p on p.pizzaId = op.pizzaId
+    WHERE op.ordersId = {$orderId};"
   ) or 
     die("database error:" . mysqli_error($conn));
 

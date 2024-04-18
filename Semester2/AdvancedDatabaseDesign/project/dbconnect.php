@@ -3,7 +3,7 @@
 $host="localhost:3306";
 $username="root";
 $pass="12345678";
-$db="groupproject";
+$db="project2";
  
 $conn=mysqli_connect($host,$username,$pass,$db);
 if(!$conn){
