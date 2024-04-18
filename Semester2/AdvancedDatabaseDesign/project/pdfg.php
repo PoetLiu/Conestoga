@@ -11,7 +11,7 @@ class PDF extends FPDF
         // Top color block
         $this->SetY(0);
         $this->SetX(0);
-        $this->SetFillColor(200, 0, 0);
+        $this->SetFillColor(250,188,2);
         $this->Cell($this->GetPageWidth(), 5, '', 0, 1, '', true);
         $this->Ln(5);
 
@@ -115,7 +115,7 @@ function drawBody($pdf, $orderItems) {
         )
     );
     $pdf->SetFont('Arial', 'B', 12);
-    $pdf->SetFillColor(255, 0, 0);
+    $pdf->SetFillColor(238,153,71);
     $pdf->SetTextColor(255, 255, 255);
     foreach ($display_heading as $heading) {
         $pdf->Cell($heading['width'], 10, $heading['title'], 0, 0, 'C', true);
