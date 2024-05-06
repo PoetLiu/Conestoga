@@ -7,26 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
 
     Button btnShow;
     Button btnNew;
     Note mTempNote = new Note();
-
-    private List<Note> noteList = new ArrayList<>();
-
-    public void createNewNote(Note n) {
-        mTempNote = n;
-        noteList.add(mTempNote);
-    }
-
-    public List<Note> getNoteList(){
-        return noteList;
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

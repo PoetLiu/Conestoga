@@ -52,9 +52,7 @@ public class DialogNewNote extends DialogFragment {
 
                 Note n = new Note(mTitle, mDescript, mImport);
 
-
-                MainActivity ma = (MainActivity)getActivity();
-                ma.createNewNote(n);
+                //pass the note and put in array
 
                 dismiss();
             }

@@ -1,0 +1,12 @@
+div {
+    height: 100px;
+    width: 100px;
+    background-color: teal;
+    transition-duration: 100ms;
+}
+
+div:hover {
+    background-color: aquamarine;
+    /* transform: rotate(45deg); */
+    transform: scale(2);
+}

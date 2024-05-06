@@ -13,9 +13,6 @@ import android.os.Bundle;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
-
-
     private ViewPager2 viewPager;
     private ScreenSlidePagerAdapter pagerAdapter;
     @Override
@@ -32,18 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.setAdapter(pagerAdapter);
     }
-
-    @Override
-    public void onBackPressed() {
-        if (viewPager.getCurrentItem() == 0){
-            super.onBackPressed();
-        }
-        else {
-            viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
-        }
-    }
-
-
 
     private class ScreenSlidePagerAdapter extends FragmentStateAdapter {
 
@@ -67,4 +52,16 @@ public class MainActivity extends AppCompatActivity {
             return fragList.size();
         }
     }
+
+
+    @Override
+    public void onBackPressed() {
+        if (viewPager.getCurrentItem() == 0){
+            super.onBackPressed();
+        }
+        else {
+            viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+        }
+    }
+
 }

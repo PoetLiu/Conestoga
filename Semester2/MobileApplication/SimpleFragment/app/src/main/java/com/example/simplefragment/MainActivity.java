@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().setFragmentResultListener("request", this,
                 (requestKey, result) -> {
-            String output = result.getString("passedString");
-            txtFragOutput.setText(output);
-        });
+                    String output = result.getString("passedString");
+                    txtFragOutput.setText(output);
+                });
 
         //receive the data from the fragment
         getSupportFragmentManager().setFragmentResultListener("request", this,

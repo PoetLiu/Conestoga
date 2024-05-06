@@ -25,7 +25,8 @@ public class ScreenSlidePageFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_screen_slide, container, false);
         txtTitle = v.findViewById(R.id.txtTitle);
         txtTitle.setText(getArguments().getString("FRAG_TITLE"));

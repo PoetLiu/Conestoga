@@ -1,1 +1,0 @@
-console.log("Welcome to Github Test App");
